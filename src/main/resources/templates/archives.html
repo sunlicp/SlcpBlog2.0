@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="keywords" content="Slcpの时光屋,Slcpの魔历球"/>
+    <title>Slcpの魔法屋</title>
+    <link rel="stylesheet" href="../static/css/timeline.css" th:href="@{/css/timeline.css}">
+    <head th:replace="~{common :: .head}"></head>
+</head>
+<body>
+<div th:replace="~{common :: .top-cat}"></div>
+<div th:replace="~{common :: .top}"></div>
+<div id="archiveImg" class="bg-cover pd-header about-cover"
+     style="height: 120vh;background-image: url(https://img.slcp.top/ft/IMG_3363.PNG)">
+    <div data-aos="fade-right" data-aos-delay="1100" class="about-tag-about hide-on-med-and-down">
+        <div class="V-title">
+            <span>&quot;Archive&quot;</span>
+        </div>
+    </div>
+    <div data-aos="fade-left" data-aos-delay="1100" class="hide-on-med-and-down">
+        <div class="V-title">
+            <span class="about-tag-Slcp">&quot;Slcp&quot;</span>
+            <span class="about-tag-blog">&quot;blog&quot;</span>
+        </div>
+    </div>
+    <div class="center-align about-typed">
+        <div class="Z-title">
+            <span>魔法屋</span>
+        </div>
+        <span id="subtitle" style="font-size:28px;"></span>
+    </div>
+    <div class="hide-on-large-only center-align m-V-img" style="width: 100vw" data-aos="zoom-in" data-aos-delay="1100">
+        <div class="V-title m-V-title">
+            <span>&quot;Archive&quot;</span>
+        </div>
+    </div>
+</div>
+<main class="content">
+    <div class="container archive-calendar">
+        <div class="card">
+            <div class="card-content">
+                <div class="center-align">
+                    <div class="V-title V-title-top">
+                        <span><i class="fa fa-history"></i></span><span>&nbsp;&nbsp;时间轴 ⏳</span>
+                    </div>
+                </div>
+            </div>
+            <hr data-aos="fade-right">
+            <div style="height: 20px"></div>
+            <div id="post-calendar" class="card-content"></div>
+        </div>
+        <div class="timeline-box shadow">
+            <div class="timeline-main">
+                <h1><i class="fas fa-clock"></i>文章归档</h1>
+                <div class="timeline-line"></div>
+                <div class="timeline-year" th:each="year : ${years}">
+                    <h2><a class="yearToggle" href="javascript:void(0)" th:text="${year}">2022</a><i
+                            class="fa fa-fw fa-caret-down"></i></h2>
+                    <div class="timeline-month" style="" th:each="archive : ${blogs}">
+                        <h3><a class="monthToggle" href="javascript:void(0)"
+                               th:text="${#dates.format(archive.createTime,'MM月')}">12月</a><i
+                                class="fa fa-caret-down fa-fw"></i>
+                        </h3>
+                        <ul th:each="blog : ${archive.data}">
+                            <li>
+                                <div class="h4">
+                                    <p class="date" th:text="${#dates.format(blog.createTime,'dd日')}">12日</p>
+                                </div>
+                                <p class="dot-circle animated" style="top:-21px;"><i class="fas fa-dot-circle"></i></p>
+
+                                <article class="contentC" style="margin-left:8px;display: block;">
+                                    <div class="new-item-badge"><i class="fas fa-bookmark fa-fw icon-category"
+                                                                   style="color: #fff"></i>
+                                        <a th:href="@{/article/category?name={name}(name=${blog.typeName})}"
+                                           style="color: #fff">
+                                            <span th:text="${blog.typeName}">软件工具</span>
+                                        </a></div>
+                                    <div class="article col s12 m6 l4" data-aos="zoom-in">
+                                        <div class="card z-depth-5">
+                                            <a th:href="@{/article/read/{id}(id=${blog.id})}">
+                                                <div class="card-image card-image-V">
+                                                    <img class="responsive-img lazyload"
+                                                         th:href="@{/article/read/{id}(id=${blog.id})}"
+                                                         src="../static/images/common/orange.progress-bar-stripe-loader.svg"
+                                                         th:src="@{/images/common/orange.progress-bar-stripe-loader.svg}"
+                                                         data-src="../static/images/backimg1.jpg"
+                                                         th:data-src="@{${blog.firstPicture}}"
+                                                         th:alt="${blog.title}"/>
+                                                    <span class="card-title title-V"
+                                                          th:text="${blog.title}">一些排序算法回顾</span>
+                                                    <div class="box-content">
+                                                        <h3 class="title">阅读全文</h3>
+                                                        <span class="post" style="width: 200px;color: black;"
+                                                              th:text="${blog.title}">一些排序算法回顾</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </article>
+                                <div class="clear"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h1 class="archive-end"><i class="fa fa-hourglass-end"></i>THE END
+                </h1>
+            </div>
+        </div>
+    </div>
+</main>
+<div th:include="~{common :: .floor-top}"></div>
+<footer class="page-footer center-align">
+    <div class="container">
+        <div class="copyright" style="position: relative;top: 60px">
+            <div th:include="~{common :: .floor}"></div>
+            <div id="blog-message">
+                <div th:fragment="blogMessage">
+                    <div class="V-badge" title="您所在的IP地址">
+                        <span class="badge-subject">Y-IP</span><span class="badge-value bg-dm" id="ip"></span>
+                    </div>
+                    <!--<div class="V-badge" title="您所在的地理位置">
+                        <span class="badge-subject">GPS</span><span class="badge-value bg-bi" id="address"></span>
+                    </div>
+                    <div class="V-badge" title="您所在的纬度">
+                        <span class="badge-subject">LAT</span><span class="badge-value bg-dmt" id="lat"></span>
+                    </div>
+                    <div class="V-badge" title="您所在的经度">
+                        <span class="badge-subject">LON</span><span class="badge-value bg-cc" id="lon"></span>
+                    </div>-->
+                    <script>
+                        var str = {};
+                        $.get("https://api.ipify.org", function (data, status) {
+                            if ("success" == status) {
+                                document.getElementById("ip").innerText = data;
+                                /*document.getElementById("address").innerText = data.regionName + data.city;
+                                document.getElementById("lat").innerText = data.lat;
+                                document.getElementById("lon").innerText = data.lon;*/
+                            }
+                        });
+                    </script>
+                    <div class="V-badge" title="文章总数">
+                        <span class="badge-subject">AC</span><span class="badge-value bg-ms"
+                                                                   th:text="${blogTotal}"></span>
+                    </div>
+                    <div class="V-badge" title="访问总数">
+                        <span class="badge-subject">PV</span><span class="badge-value bg-ba"
+                                                                   style="background-color:	#FFA07A"
+                                                                   th:text="${blogViewTotal}"></span>
+                    </div>
+                    <div class="V-badge" title="运行时间">
+                        <span class="badge-subject">Running</span><span th:text="${blogDays}" id="runningTime"
+                                                                        class="badge-value bg-lc"
+                                                                        style="background-color:#a4a492"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img class="footer-skirt" src="../../static/images/my/skirt.webp" th:src="@{/images/my/skirt.webp}">
+</footer>
+<div th:replace="~{common :: .floor-js}"></div>
+<script src="../static/js/echarts.min.js" th:src="@{/js/echarts.min.js}"></script>
+<script>
+    $(function () {
+        $.ajax({
+            "url": "/archives/sQuByTime",
+            "type": "POST",
+            "success": function (data) {
+                let postsChart = echarts.init(document.getElementById('post-calendar'));
+                let postsOption = {
+                    title: {
+                        text: '文章发布统计图',
+                        top: -3,
+                        x: 'center'
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    xAxis: {
+                        type: 'category',
+                        data: data.date
+                    },
+                    yAxis: {
+                        type: 'value',
+                    },
+                    series: [
+                        {
+                            name: '文章篇数',
+                            type: 'line',
+                            color: ['#6772e5'],
+                            data: data.count,
+                            markPoint: {
+                                symbolSize: 45,
+                                color: ['#fa755a', '#3ecf8e', '#82d3f4'],
+                                data: [{
+                                    type: 'max',
+                                    itemStyle: {color: ['#3ecf8e']},
+                                    name: '最大值'
+                                }, {
+                                    type: 'min',
+                                    itemStyle: {color: ['#fa755a']},
+                                    name: '最小值'
+                                }]
+                            },
+                            markLine: {
+                                itemStyle: {color: ['#ab47bc']},
+                                data: [
+                                    {type: 'average', name: '平均值'}
+                                ]
+                            }
+                        }
+                    ]
+                };
+                // render the charts
+                postsChart.setOption(postsOption);
+            }
+        })
+    });
+    $('.monthToggle').click(function () {
+        $(this).parent('h3').siblings('ul').slideToggle('slow');
+        $(this).siblings('i').toggleClass('fa-caret-down fa-caret-right');
+    });
+    $('.yearToggle').click(function () {
+        $(this).parent('h2').siblings('.timeline-month').slideToggle('slow');
+        $(this).siblings('i').toggleClass('fa-caret-down fa-caret-right');
+    });
+
+</script>
+<div th:replace="~{common :: .svg}"></div>
+</body>
+</html>

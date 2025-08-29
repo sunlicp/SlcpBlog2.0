@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="keywords" th:content="${tagStr}"/>
+    <meta name="baidu-site-verification" content="code-4JVLqEsd0l"/>
+    <meta name="google-site-verification" content="04JsMT7rHFvGr4NPHW_kPrAlVJZ87EFz9FIa1ebXBEM"/>
+    <title>Slcpの藏宝阁</title>
+    <link rel="stylesheet" href="../static/css/article.css" th:href="@{/css/article.css}">
+    <link rel="stylesheet" href="../static/css/blog.min.css" th:href="@{/css/blog.min.css}">
+    <link rel="stylesheet" href="../static/css/SLAnimation.min.css" th:href="@{/css/SLAnimation.min.css}">
+    <head th:replace="~{common :: .head}"></head>
+</head>
+<body>
+<div th:replace="~{common :: .top-cat}"></div>
+<div th:replace="~{common :: .top}"></div>
+<div class="bg-cover pd-header article-cover candle-image" style="height: 100vh">
+    <div class="candle-con">
+        <div class="wrapper">
+            <div class="candles">
+                <div class="light__wave"></div>
+                <div class="candle1">
+                    <div class="candle1__body">
+                        <div class="candle1__eyes">
+                            <span class="candle1__eyes-one"></span>
+                            <span class="candle1__eyes-two"></span>
+                        </div>
+                        <div class="candle1__mouth"></div>
+                    </div>
+                    <div class="candle1__stick"></div>
+                </div>
+                <div class="candle2">
+                    <div class="candle2__body">
+                        <div class="candle2__eyes">
+                            <div class="candle2__eyes-one"></div>
+                            <div class="candle2__eyes-two"></div>
+                        </div>
+                    </div>
+                    <div class="candle2__stick"></div>
+                </div>
+                <div class="candle2__fire"></div>
+                <div class="sparkles-one"></div>
+                <div class="sparkles-two"></div>
+                <div class="candle__smoke-one">
+                </div>
+                <div class="candle__smoke-two">
+                </div>
+            </div>
+            <div class="floor">
+            </div>
+        </div>
+    </div>
+    <div class="workBoy-con">
+        <div class="wrapper2">
+            <div class="sofa">
+                <div class="sofa-cushion"></div>
+                <div class="sofa-bottom-l"></div>
+                <div class="sofa-bottom-r"></div>
+            </div>
+        </div>
+        <div class="cat-V">
+            <div class="cat-arm-shoulder"></div>
+            <div class="cat-head">
+                <div class="cat-ear-l"></div>
+                <div class="cat-ear-r"></div>
+                <div class="cat-eye-l"></div>
+                <div class="cat-eye-r"></div>
+            </div>
+            <div class="cat-arm-l"></div>
+            <div class="cat-arm-r"></div>
+            <div class="cat-tale"></div>
+        </div>
+        <div class="boy">
+            <div class="arm-l"></div>
+            <div class="foot-l"></div>
+            <div class="head">
+                <div class="face">
+                    <div class="hair-1"></div>
+                    <div class="hair-2"></div>
+                    <div class="eye-l"></div>
+                    <div class="eye-r"></div>
+                </div>
+                <div class="hair-3"></div>
+            </div>
+            <div class="foot-r"></div>
+            <div class="arm-r"></div>
+            <div class="laptop">
+                <div class="light"></div>
+            </div>
+        </div>
+    </div>
+    <div data-aos="fade-right" data-aos-delay="1700" class="about-tag-about hide-on-med-and-down">
+        <div class="V-title">
+            <span>&quot;Fight&quot;</span>
+        </div>
+    </div>
+    <div data-aos="fade-left" data-aos-delay="1700" class="hide-on-med-and-down">
+        <div class="V-title">
+            <span class="article-tag-Slcp">&quot;Slcp&quot;</span>
+            <span class="about-tag-blog" style="top: 0vh;">&quot;blog&quot;</span>
+        </div>
+    </div>
+    <div class="center-align article-typed" style="top:72vh;">
+        <span id="subtitle" style="font-size:28px;color: #0C0C0C"></span>
+    </div>
+    <div class="hide-on-med-and-down V-img" data-aos="zoom-in" data-aos-delay="1700">
+    </div>
+    <div class="hide-on-large-only center-align m-V-img-article" style="width: 100vw" data-aos="zoom-in"
+         data-aos-delay="1700">
+        <div class="V-title m-V-title">
+            <span>&quot;Fight&quot;</span>
+        </div>
+    </div>
+    <div class="rightan center-align">
+        <img src="../static/images/biao.jpg" th:src="@{/images/biao.jpg}"/>
+    </div>
+</div>
+<div class="container-fixed">
+    <div class="col-content">
+        <div class="inner">
+            <!--置顶文章-->
+            <article id="articles" class="container articles" style="padding-top: 5px">
+                <div class="article col s12 m6 l4" data-aos="fade-right" th:each="blog : ${recommendedBlogs}">
+                    <div class="card">
+                        <a th:href="@{/article/read/{id}(id=${blog.id})}">
+                            <div class="card-image">
+                                <img class="responsive-img lazyload" th:href="@{/article/read/{id}(id=${blog.id})}"
+                                     src="../static/images/common/orange.progress-bar-stripe-loader.svg"
+                                     th:src="@{/images/common/orange.progress-bar-stripe-loader.svg}"
+                                     data-src="../static/images/backimg1.jpg" th:data-src="@{${blog.firstPicture}}"
+                                     th:alt="${blog.title}"/>
+                                <span class="card-title" th:text="${blog.title}">大圣，此去欲何?</span>
+                                <div class="box-content">
+                                    <h3 class="title">热门文章</h3>
+                                    <span class="post" style="width: 160px;color: black;" th:text="${blog.title}">大圣，此去欲何?</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text" th:text="${blog.description}">
+                                黄眉老怪诱骗孙悟空进入山洞，要用六耳取代他。六耳猕猴假扮小妖，和孙悟空朝夕相处。最终，孙悟空将六耳猕猴吸入体内，击败黄眉老怪，带着妖怪们离开了山洞。他也明白了“大圣”二字的真谛，以及取经的意义
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date"> <i class="far fa-calendar-minus"></i> <span
+                                        th:text="${#dates.format(blog.createTime,'yyyy年MM月dd日')}">2020-01-02 </span></span>
+                                <span class="publish-author"> <i class="fa fa-bookmark fa-fw icon-category"></i> <a
+                                        th:href="@{/article/category?name={name}(name=${blog.typeName})}"
+                                        class="post-category"> <span
+                                        th:text="${blog.typeName}">编程之道 </span></a> </span>
+                            </div>
+                        </div>
+                        <div class="card-action article-tags">
+                            <a th:each="tag : ${blog.tags}" th:href="@{/tags/{id}(id=${tag.tagId})}"> <span
+                                    class="chip bg-color" style="transition: all .4s;"
+                                    th:text="${tag.tagName}">JUC</span> </a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <!--普通排序文章-->
+            <article id="articles" class="container articles" style="padding-top: 2.5px">
+                <div class="row article-row">
+                    <div class="article col s12 m6 l4" data-aos="zoom-in" th:each="blog : ${pageInfo.records}">
+                        <div class="card z-depth-5">
+                            <style>
+                                .card-image:hover .title-V {
+                                    display: none;
+                                }
+
+                                article .card-image-V:before, article .card-image-V:after {
+                                    top: -10.5%;
+
+                                }
+                            </style>
+                            <a th:href="@{/article/read/{id}(id=${blog.id})}">
+                                <div class="card-image card-image-V">
+                                    <img class="responsive-img lazyload" th:href="@{/article/read/{id}(id=${blog.id})}"
+                                         src="../static/images/common/orange.progress-bar-stripe-loader.svg"
+                                         th:src="@{/images/common/orange.progress-bar-stripe-loader.svg}"
+                                         data-src="../static/images/backimg1.jpg" th:data-src="@{${blog.firstPicture}}"
+                                         th:alt="${blog.title}"/>
+                                    <span class="card-title title-V" th:text="${blog.title}">一些排序算法回顾</span>
+                                    <div class="box-content">
+                                        <h3 class="title">阅读全文</h3>
+                                        <span class="post" style="width: 200px;color: black;" th:text="${blog.title}">一些排序算法回顾</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="card-content article-content">
+                                <div class="summary block-with-text" th:text="${blog.description}">
+                                    黄眉老怪诱骗孙悟空进入山洞，要用六耳取代他。六耳猕猴假扮小妖，和孙悟空朝夕相处。最终，孙悟空将六耳猕猴吸入体内，击败黄眉老怪，带着妖怪们离开了山洞。他也明白了“大圣”二字的真谛，以及取经的意义
+                                </div>
+                                <div class="publish-info">
+                                    <span class="publish-date"> <i class="far fa-calendar-minus"></i> <span
+                                            th:text="${#dates.format(blog.createTime,'yyyy-MM-dd')}">2020-01-02 </span></span>
+                                    <span class="publish-author"> <i class="fa fa-bookmark fa-fw icon-category"></i> <a
+                                            th:href="@{/article/category?name={name}(name=${blog.typeName})}"
+                                            class="post-category" th:text="${blog.typeName}"> 数据结构 </a> </span>
+                                </div>
+                            </div>
+                            <div class="card-action article-tags">
+                                <a th:each="tag : ${blog.tags}" th:href="@{/tags/{id}(id=${tag.tagId})}"> <span
+                                        class="chip bg-color" style="transition: all .4s;"
+                                        th:text="${tag.tagName}">排序算法</span> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <!--主体文章分页-->
+            <div class="row" style="padding-top: 20px" data-aos="flip-left">
+                <div class="col s6 m4 l4">
+                    <a class="page left btn-floating btn-large waves-effect waves-light bg-color"
+                       th:href="@{/article/(pageNum=${pageInfo.current > 1}?${pageInfo.current - 1}:1)}"
+                       th:unless="${pageInfo.current == 1}"> <i class="fa fa-angle-left"></i> </a>
+                    <a class="page left btn-floating btn-large waves-effect waves-light bg-color" href="/article"
+                       style="display:none"> <i class="fa fa-angle-left"></i> </a>
+                </div>
+                <div class="page-info col m4 l4 hide-on-small-only">
+                    <div class="center-align b-text-gray">
+                        <h3><span th:text="${pageInfo.current}"></span> / <span th:text="${pageInfo.pages}"></span></h3>
+                    </div>
+                </div>
+                <div class="col s6 m4 l4">
+                    <a th:href="@{/article/(pageNum=${pageInfo.current < pageInfo.pages}?${pageInfo.current + 1}:${pageInfo.pages})}"
+                       th:unless="${pageInfo.current == pageInfo.pages}"
+                       class="right btn-floating btn-large waves-effect waves-light bg-color"> <i
+                            class="fa fa-angle-right"></i> </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--右边功能组件-->
+    <div class="col-other">
+        <div class="inner">
+            <div data-aos="fade-left">
+                <div class="other-item card" id="categoryandsearch">
+                    <h5 class="other-item-title">文章分类</h5>
+                    <ul class="category mt20" id="category">
+                        <li><a th:href="@{/article/category/}">全部文章</a></li>
+                        <li th:each="type : ${types}"><a
+                                th:href="@{/article/category?name={name}(name=${type.typeName})}">
+                            <span th:text="${type.typeName}">后端</span> <span class="chip bg-color center-align"
+                                                                               style="color: whitesmoke;float: right;margin-top: 3px"
+                                                                               th:text="${type.sum}"> </span> </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div data-aos="fade-left">
+                <div class="other-item card">
+                    <h5 class="other-item-title">热门文章</h5>
+                    <div class="inner">
+                        <ul class="hot-list-article">
+                            <li th:each="hot : ${hotBlogs}"><a style="display: block"
+                                                               th:href="@{/article/read/{id}(id=${hot.id})}"
+                                                               th:text="${hot.title}">说说JAVA线程池</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div data-aos="fade-left">
+                <div class="other-item card">
+                    <h5 class="other-item-title">置顶推荐</h5>
+                    <div class="inner">
+                        <ul class="hot-list-article">
+                            <li th:each="hot : ${topBlogs}"><a style="display: block"
+                                                               th:href="@{/article/read/{id}(id=${hot.id})}"
+                                                               th:text="${hot.title}">说说JAVA线程池</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="~{common :: .floor-top}"></div>
+<footer class="page-footer center-align">
+    <div class="container">
+        <div class="copyright" style="position: relative;top: 60px">
+            <div th:include="~{common :: .floor}"></div>
+            <div id="blog-message">
+                <div th:fragment="blogMessage">
+                    <div class="V-badge" title="您所在的IP地址">
+                        <span class="badge-subject">Y-IP</span><span class="badge-value bg-dm" id="ip"></span>
+                    </div>
+                    <!--<div class="V-badge" title="您所在的地理位置">
+                        <span class="badge-subject">GPS</span><span class="badge-value bg-bi" id="address"></span>
+                    </div>
+                    <div class="V-badge" title="您所在的纬度">
+                        <span class="badge-subject">LAT</span><span class="badge-value bg-dmt" id="lat"></span>
+                    </div>
+                    <div class="V-badge" title="您所在的经度">
+                        <span class="badge-subject">LON</span><span class="badge-value bg-cc" id="lon"></span>
+                    </div>-->
+                    <script>
+                        var str = {};
+                        $.get("https://api.ipify.org", function (data, status) {
+                            if ("success" == status) {
+                                document.getElementById("ip").innerText = data;
+                                /*document.getElementById("address").innerText = data.regionName + data.city;
+                                document.getElementById("lat").innerText = data.lat;
+                                document.getElementById("lon").innerText = data.lon;*/
+                            }
+                        });
+                    </script>
+                    <div class="V-badge" title="文章总数">
+                        <span class="badge-subject">AC</span><span class="badge-value bg-ms"
+                                                                   th:text="${blogTotal}"></span>
+                    </div>
+                    <div class="V-badge" title="访问总数">
+                        <span class="badge-subject">PV</span><span class="badge-value bg-ba"
+                                                                   style="background-color:	#FFA07A"
+                                                                   th:text="${blogViewTotal}"></span>
+                    </div>
+                    <div class="V-badge" title="运行时间">
+                        <span class="badge-subject">Running</span><span th:text="${blogDays}" id="runningTime"
+                                                                        class="badge-value bg-lc"
+                                                                        style="background-color:#a4a492"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img class="footer-skirt" src="../../static/images/my/skirt.webp" th:src="@{/images/my/skirt.webp}">
+</footer>
+<div th:replace="~{common :: .floor-js}"></div>
+<script type="text/javascript">
+    setTimeout(function () {
+        if ((new Date().getHours() >= 20 || new Date().getHours() < 7) && localStorage.getItem('isDark') != '1' && localStorage.getItem('isDark') != '0') {
+            let toastHTML = '<span style="color:#97b8b2;border-radius: 10px;>' +
+                '<i class="fa fa-bell" aria-hidden="true"></i>天色渐晚，已自动为你开启深色模式。(ﾟ▽ﾟ)/</span>';
+            M.toast({html: toastHTML})
+        }
+    }, 2200);
+    $(window).scroll(function () {
+        let scroll = $(window).scrollTop();
+        if (scroll > 1880)
+            $('#categoryandsearch').addClass('fixed');
+        else
+            $('#categoryandsearch').removeClass('fixed');
+    });
+
+    function formatDate(date, format) {
+        if (!date) return;
+        if (!format) format = "yyyy-MM-dd";
+        switch (typeof date) {
+            case "string":
+                date = new Date(date.replace(/-/, "/"));
+                break;
+            case "number":
+                date = new Date(date);
+                break;
+        }
+        if (!date instanceof Date) return;
+        var dict = {
+            "yyyy": date.getFullYear(),
+            "M": date.getMonth() + 1,
+            "d": date.getDate(),
+            "H": date.getHours(),
+            "m": date.getMinutes(),
+            "s": date.getSeconds(),
+            "MM": ("" + (date.getMonth() + 101)).substr(1),
+            "dd": ("" + (date.getDate() + 100)).substr(1),
+            "HH": ("" + (date.getHours() + 100)).substr(1),
+            "mm": ("" + (date.getMinutes() + 100)).substr(1),
+            "ss": ("" + (date.getSeconds() + 100)).substr(1)
+        };
+        return format.replace(/(yyyy|MM?|dd?|HH?|ss?|mm?)/g, function () {
+            return dict[arguments[0]];
+        });
+    }
+</script>
+<div th:replace="~{common :: .svg}"></div>
+</body>
+</html>

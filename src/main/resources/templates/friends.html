@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="keywords" content="Slcpの欢乐园,Slcpの朋友圈,Slcpの友人链"/>
+    <title>Slcpの友人帐</title>
+    <head th:replace="~{common :: .head}"></head>
+    <link rel="stylesheet" type="text/css" href="../static/css/gitalk.min.css" th:href="@{/css/gitalk.min.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/valineStyle.min.css"
+          th:href="@{/css/valineStyle.min.css}"/>
+    <link rel="stylesheet" href="../static/css/friend.css" th:href="@{/css/friend.css}">
+    <style>
+        .our-team h3:before {
+            display: none;
+        }
+        input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid #9e9e9e;
+            border-radius: 0;
+            outline: none;
+            height: 3rem;
+            width: 100%;
+            font-size: 16px;
+            margin: 0 0 8px 0;
+            padding: 0;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+            -webkit-transition: border .3s, -webkit-box-shadow .3s;
+            transition: border .3s, -webkit-box-shadow .3s;
+            transition: box-shadow .3s, border .3s;
+            transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s
+        }
+    </style>
+
+</head>
+<body>
+<div th:replace="~{common :: .top-cat}"></div>
+<div th:replace="~{common :: .top}"></div>
+
+<div id="friendImg" class="bg-cover pd-header about-cover"
+     style="height: 120vh;background-image: url(https://img.slcp.top/ft/IMG_3403.PNG)">
+    <div data-aos="fade-right" data-aos-delay="1100" class="about-tag-about hide-on-med-and-down">
+        <div class="V-title">
+            <span>&quot;Friends&quot;</span>
+        </div>
+    </div>
+    <div data-aos="fade-left" data-aos-delay="1100" class="hide-on-med-and-down">
+        <div class="V-title">
+            <span class="about-tag-Slcp">&quot;Slcp&quot;</span>
+            <span class="about-tag-blog">&quot;blog&quot;</span>
+        </div>
+    </div>
+    <div class="center-align about-typed">
+        <div class="Z-title">
+            <span>友人帐</span>
+        </div>
+        <span id="subtitle" style="font-size:28px;"></span>
+    </div>
+    <div class="hide-on-large-only center-align m-V-img" style="width: 100vw" data-aos="zoom-in" data-aos-delay="1100">
+        <div class="V-title m-V-title">
+            <span>&quot;Friends&quot;</span>
+        </div>
+    </div>
+</div>
+<main class="content">
+    <div class="container friends-container">
+        <div class="card" style="top: -5rem">
+            <div class="card-content">
+                <div class="center-align">
+                    <div class="V-title V-title-top">
+                        <span><i class="fas fa-link"></i></span>
+                        <span>&nbsp;&nbsp;友情链接 🎡</span>
+                    </div>
+                </div>
+                <hr data-aos="fade-right" style="top: 50px">
+                <div class="note warning" data-aos="flip-up" style="top: 50px">温馨提示：以下链接一个月内图片访问不了，可是会被清理掉哦
+                    &emsp;&emsp;&emsp;&emsp;ฅ•̀∀•́ฅ
+                </div>
+                <br/>
+                <article id="friends-link">
+                    <div class="row tags-posts friend-all">
+                        <div class="flink-list">
+                            <a class="flink-list-card wow animate__flipInY" th:each="blog : ${friendLinks}"
+                               th:href="${blog.blogAddress}" target="_blank" th:data-title="${blog.description}"
+                               data-wow-duration="3s" data-wow-delay="" data-wow-offset=""
+                               data-wow-iteration=""
+                               style="visibility: visible; animation-duration: 3s; animation-name: flipInY;">
+                                <div class="wrapper cover"><img class="cover fadeIn medium-zoom-image entered loaded"
+                                                                th:src="${blog.blogImg}"
+                                                                th:data-lazy-src="${blog.blogImg}"
+                                                                onerror="this.onerror=null,this.src=&quot;https://img.slcp.top/404.gif&quot;"
+                                                                alt="" data-ll-status="loaded"></div>
+                                <div class="info"><img
+                                        th:src="${blog.headImg}"
+                                        th:data-lazy-src="${blog.headImg}"
+                                        onerror="this.onerror=null,this.src=&quot;https://img.slcp.top/LodingPeer.jpeg&quot;"
+                                        alt="" class="medium-zoom-image entered loaded" data-ll-status="loaded"><span
+                                        class="flink-sitename" th:text="${blog.blogName}">Slcp</span></div>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <div class="center-align">
+                    <div class="V-title V-title-top" style="margin: 100px 0px 50px 0px;">
+                        <span><i class="fas fa-address-book"></i></span>
+                        <span>&nbsp;&nbsp;站点信息 📰</span>
+                    </div>
+                </div>
+                <hr data-aos="fade-right">
+                <div class="note info" data-aos="flip-up" style="position: relative;">如果可以成为邻居的话，请留下你的信息嗷
+                    |ू･ω･` )
+                </div>
+                <div data-aos="fade-up">
+                    <div class="card  v-card card-message" style="top: 20px">
+                        <div class="new-item-badge">
+                            我的资料
+                        </div>
+                        <div class="card-content v-order">
+                            <ol style="padding-inline-start: 5px !important;">
+                                <li>
+                                    <div style="font-size: 18px"><i class="fa fa-address-book"></i> 博客名称：Slcpの童话镇
+                                    </div>
+                                </li>
+                                <li>
+                                    <div style="font-size: 18px"><i class="fa fa-user"></i>
+                                        博客头像：https://img.slcp.top/bg.jpg
+                                    </div>
+                                </li>
+                                <li>
+                                    <div style="font-size: 18px"><i class="fa fa-link"></i> 博客地址：https://slcp.top
+                                    </div>
+                                </li>
+                                <li>
+                                    <div style="font-size: 18px"><i class="fa fa-image"></i>
+                                        博客截图：https://img.slcp.top/slcpH.png
+                                    </div>
+                                </li>
+                                <li>
+                                    <div style="font-size: 18px"><i class="fa fa-anchor"></i> 博客简介：你若盛开,阳光自来。
+                                    </div>
+                                </li>
+
+
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="center-align" style="margin: 100px 0px 50px 0px;">
+                    <div class="V-title V-title-top">
+                        <span><i class="fas fa-edit"></i></span>
+                        <span>&nbsp;&nbsp;友链申请 📮</span>
+                    </div>
+                </div>
+                <hr data-aos="fade-right">
+                <div class="note warning" data-aos="flip-up" style="position: relative;">
+                    在我们成为邻居之前，您需要满足这些要求:
+                </div>
+                <div data-aos="fade-up" style="margin: 0px 0px 100px 0px;">
+                    <div class="card  v-card card-message">
+                        <div class="new-item-badge">
+                            友链要求
+                        </div>
+                        <div class="card-content v-order">
+                            <ol style="padding-inline-start: 5px !important;">
+                                <li>
+                                    <div style="font-size: 18px"><i class="fa fa-check" style="color: #00FF00"></i>
+                                        请先添加本站为友链（๑＞ڡ＜）☆
+                                    </div>
+                                </li>
+                                <li>
+                                    <div style="font-size: 18px"><i class="fa fa-check" style="color: #00FF00"></i>
+                                        原创文章数量超过 20 篇
+                                    </div>
+                                </li>
+                                <li>
+                                    <div style="font-size: 18px"><i class="fa fa-check" style="color: #00FF00"></i>
+                                        全站须默认使用 https 协议（或已备案）
+                                    </div>
+                                </li>
+                                <li>
+                                    <div style="font-size: 18px"><i class="fa fa-check" style="color: #00FF00"></i>
+                                        非盈利的个人博客（或大部分为非盈利内容）
+                                    </div>
+                                </li>
+                                <li>
+                                    <div style="font-size: 18px"><i class="fa fa-check" style="color: #00FF00"></i>
+                                        不涉及反动/色情/暴力等不良内容
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align:center">
+                    <a href="#addFriendModal"
+                       class="friend-color modal-trigger waves-effect waves-light faa-parent animated-hover ">
+                        成为邻居
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div data-aos="fade-up">
+            <div id="comment" class="card valine-card" style="top: -60px">
+                <img class="lazyload zoombe-comment" data-aos="slide-left" src="../static/images/lodingPeer.gif"
+                     th:src="@{/images/lodingPeer.gif}"
+                     data-src="../static/images/zoomb.gif"
+                     th:data-src="@{/images/zoomb.gif}" width="170px" height="170px"/>
+                <div class="card-content">
+                    <div class="comment_headling head-comment">
+                        <i class="fa fa-comments" aria-hidden="true"></i>
+                        <span>留言</span>
+                        <div class="comment-switch">
+                            <span class="first-comment">Valine </span>
+                            <label class="switch"> <input type="checkbox"/>
+                                <div class="sliderV round" id="sliderV"></div>
+                            </label>
+                            <span class="second-comment">  Gitalk</span>
+                        </div>
+                    </div>
+                    <!-- Gitalk 评论 start  -->
+                    <script src="../static/js/gitalk.min.js" th:src="@{/js/gitalk.min.js}"></script>
+                    <div id="commentArea1" style="display:none;">
+                        <div id="gitalk-container"></div>
+                    </div>
+                    <script type="text/javascript">
+                        var k_host = window.location.host;
+                        var gitalk = new Gitalk({
+                            // gitalk的主要参数
+                            clientID: `e7cb9cdf3720f1f8578c`,
+                            clientSecret: `389cea354843d15b79539a8b04573463fc47780f`,
+                            repo: `SlcpBlog`,
+                            owner: 'sunlicp',
+                            admin: ['sunlicp'],
+                            id: 'friends', //注意id一定不要重复，这里是举个例子，可以写中文，如果重复了，就会把其他地方的评论显示过来
+                            proxy: 'https://' + k_host + '/login/oauth/access_token'
+                        });
+                        gitalk.render('gitalk-container');
+
+                    </script>
+                    <!-- Gitalk end -->
+                    <!--Valine-->
+                    <div id="commentArea2">
+                        <div style="height: 80px"></div>
+                        <div id="vcomments"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- 输入遮罩框 -->
+<div id="addFriendModal" class="modal">
+    <div class="modal-content" style="margin-bottom: 20px">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-chain"></i>&nbsp;&nbsp;添加</span>
+            <form class="from" th:action="@{/friend/add}" method="post">
+                <label for="blogName">博客名称
+                    <input id="blogName" name="blogName" placeholder="Slcpの童话镇" class="search-input"/>
+                </label>
+                <label for="description">博客简介
+                    <input id="description" name="description" placeholder="你若盛开,阳光自来。" class="search-input"/>
+                </label>
+                <label for="blogAddress">博客地址
+                    <input id="blogAddress" name="blogAddress" placeholder="https://slcp.top" class="search-input"/>
+                </label>
+                <label for="headImg">博客头像
+                    <input id="headImg" name="headImg" placeholder="https://img.slcp.top/bg.jpg" class="search-input"/>
+                </label>
+                <label for="blogImg">博客截图
+                    <input id="blogImg" name="blogImg" placeholder="https://img.slcp.top/slcpH.png"
+                           class="search-input"/>
+                </label>
+                <button class="waves-effect waves-light btn" style="display: inline;float:right;" type="submit">提交
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<div th:include="~{common :: .floor-top}"></div>
+<footer class="page-footer center-align">
+    <div class="container">
+        <div class="copyright" style="position: relative;top: 60px">
+            <div th:include="~{common :: .floor}"></div>
+            <div id="blog-message">
+                <div th:fragment="blogMessage">
+                    <div class="V-badge" title="您所在的IP地址">
+                        <span class="badge-subject">Y-IP</span><span class="badge-value bg-dm" id="ip"></span>
+                    </div>
+                    <!--<div class="V-badge" title="您所在的地理位置">
+                        <span class="badge-subject">GPS</span><span class="badge-value bg-bi" id="address"></span>
+                    </div>
+                    <div class="V-badge" title="您所在的纬度">
+                        <span class="badge-subject">LAT</span><span class="badge-value bg-dmt" id="lat"></span>
+                    </div>
+                    <div class="V-badge" title="您所在的经度">
+                        <span class="badge-subject">LON</span><span class="badge-value bg-cc" id="lon"></span>
+                    </div>-->
+                    <script>
+                        var str = {};
+                        $.get("https://api.ipify.org", function (data, status) {
+                            if ("success" == status) {
+                                document.getElementById("ip").innerText = data;
+                                /*document.getElementById("address").innerText = data.regionName + data.city;
+                                document.getElementById("lat").innerText = data.lat;
+                                document.getElementById("lon").innerText = data.lon;*/
+                            }
+                        });
+                    </script>
+                    <div class="V-badge" title="文章总数">
+                        <span class="badge-subject">AC</span><span class="badge-value bg-ms"
+                                                                   th:text="${blogTotal}"></span>
+                    </div>
+                    <div class="V-badge" title="访问总数">
+                        <span class="badge-subject">PV</span><span class="badge-value bg-ba"
+                                                                   style="background-color:	#FFA07A"
+                                                                   th:text="${blogViewTotal}"></span>
+                    </div>
+                    <div class="V-badge" title="运行时间">
+                        <span class="badge-subject">Running</span><span th:text="${blogDays}" id="runningTime"
+                                                                        class="badge-value bg-lc"
+                                                                        style="background-color:#a4a492"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img class="footer-skirt" src="../../static/images/my/skirt.webp" th:src="@{/images/my/skirt.webp}">
+</footer>
+<div th:replace="~{common :: .floor-js}"></div>
+<script src="../static/js/activate-power-mode.min.js" th:src="@{/js/activate-power-mode.min.js}"></script>
+<script src="../static/js/valine.min.js" th:src="@{/js/valine.min.js}"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '0zIhOC6AnmxUPH7D8wKoYJPu-gzGzoHsz',
+        appKey: 'K2ptrKq1XMlgQk0m6aqQQdhh',
+        enableQQ: true,
+        boolean: true,
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'robohash',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '(～￣▽￣)～填写邮箱可以及时收到博主邮件通知哦️~ 💌',
+        master: ["229fb628e2627b885469f1d03329b587", "6ccc0188354895f49c2fd8fac81f906f"],
+        tagMeta: ["博主", "小伙伴", "访客"],
+        friends: ["56011fc531536b4b4d97ce8511ae8b3a", "42396d4490be2395679c3a8db613f2fd", "e115ba4019d359857b5f1a51870e9236", "b95befa7be1b26edbab9aa099ce54310", "9107611a1405be1c1328b8ed85943e9e", "49393485ebfea74386d23bb2a9e7b376", "e670a759c3d23eaa17af9211618b4f40", "2c8fb00f402cfba70982ec43a14a7d49", "e1b4f47ce61cc5032b9c52100d9749f7", "850155ad55cfb9e2c60d3c0f6d599ed6"]
+    });
+    setTimeout(function () {
+        $(".fa-macos").addClass("fa-apple").removeClass("fa-macos");
+        $(".vcount").before('<hr id="V-hr1" data-aos="fade-right">');
+        $(".vpanel").after('<div class="note success" data-aos="flip-up">请先将本站添加友链，然后再申请友链，让我们成为邻居吧~  ✧。*◌·͡˔·ོ◌*·✧</div>');
+    }, 1200);
+    POWERMODE.colorful = !0, POWERMODE.shake = !1, POWERMODE.mobile = !1, document.body.addEventListener("input", POWERMODE);
+</script>
+<div th:replace="~{common :: .svg}"></div>
+</body>
+</html>

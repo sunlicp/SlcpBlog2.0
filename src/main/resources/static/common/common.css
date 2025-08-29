@@ -1,0 +1,24 @@
+h1#site-title {
+    font-family: Candyhome;
+    font-size: 3em !important
+}
+
+a.article-title, a.blog-slider__title, a.categoryBar-list-link, h1.post-title {
+    font-family: Candyhome
+}
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+    left: -66px !important
+}
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+    left: 0 !important
+}
+
+.aside-list .aside-list-item .thumbnail img {
+    border-radius: 35%
+}
+
+.aside-list .aside-list-item .thumbnail imghover {
+    border-radius: 35%
+}

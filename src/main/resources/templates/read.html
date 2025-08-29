@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${blog.title}">Slcpの魔法屋</title>
+    <meta name="description" th:content="${blog.description}"/>
+    <head th:replace="~{common :: .head}"></head>
+    <meta name="description" th:content="${blog.description}"/>
+    <meta name="keywords" th:content="${blog.tagStr}"/>
+    <meta name="baidu-site-verification" content="code-4JVLqEsd0l"/>
+    <meta name="google-site-verification" content="04JsMT7rHFvGr4NPHW_kPrAlVJZ87EFz9FIa1ebXBEM"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/gitalk.min.css" th:href="@{/css/gitalk.min.css}"/>
+
+    <link rel="stylesheet" type="text/css" href="../static/css/valineStyle.min.css"
+          th:href="@{/css/valineStyle.min.css}"/>
+    <style type="text/css">
+        body, html {
+            overflow-x: hidden;
+        }
+        code[class*="lang-"], pre[class*="lang-"] {
+            white-space: pre !important;
+        }
+
+        #articleContent ol, #articleContent ul {
+            margin-left: -39px !important;
+        }
+
+        .code-closed pre {
+            height: 0 !important;
+            overflow-y: hidden;
+        }
+
+        #particles-js {
+            z-index: -1;
+        }
+
+        #toc-content a:hover {
+            font-size: 17px;
+        }
+
+        .DarkMode pre.prettyprint {
+            -webkit-filter: brightness(.9) !important;
+            filter: brightness(.9) !important;
+            border: none;
+        }
+
+        .DarkMode #artDetail .reprint {
+            border-color: #505570;
+        }
+
+        .DarkMode code {
+            background-color: #242229
+        }
+
+        @-webkit-keyframes bounceInDown {
+            0%, 60%, 75%, 90%, to {
+                transition-timing-function: cubic-bezier(.215, .61, .355, 1)
+            }
+            0% {
+                opacity: 0;
+                -webkit-transform: translate3d(0, -3000px, 0);
+                transform: translate3d(0, -3000px, 0)
+            }
+            60% {
+                opacity: 1;
+                -webkit-transform: translate3d(0, 25px, 0);
+                transform: translate3d(0, 25px, 0)
+            }
+            75% {
+                -webkit-transform: translate3d(0, -10px, 0);
+                transform: translate3d(0, -10px, 0)
+            }
+            90% {
+                -webkit-transform: translate3d(0, 5px, 0);
+                transform: translate3d(0, 5px, 0)
+            }
+            to {
+                -webkit-transform: none;
+                transform: none
+            }
+        }
+
+        @keyframes bounceInDown {
+            0%, 60%, 75%, 90%, to {
+                transition-timing-function: cubic-bezier(.215, .61, .355, 1)
+            }
+            0% {
+                opacity: 0;
+                -webkit-transform: translate3d(0, -3000px, 0);
+                transform: translate3d(0, -3000px, 0)
+            }
+            60% {
+                opacity: 1;
+                -webkit-transform: translate3d(0, 25px, 0);
+                transform: translate3d(0, 25px, 0)
+            }
+            75% {
+                -webkit-transform: translate3d(0, -10px, 0);
+                transform: translate3d(0, -10px, 0)
+            }
+            90% {
+                -webkit-transform: translate3d(0, 5px, 0);
+                transform: translate3d(0, 5px, 0)
+            }
+            to {
+                -webkit-transform: none;
+                transform: none
+            }
+        }
+
+        .DarkMode .bg-cover {
+            -webkit-filter: brightness(.75) !important;
+            filter: brightness(.75) !important;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{common :: .top}"></div>
+<div class="bg-cover pd-header post-cover" th:style="${blog.firstPicture}">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand center-align" data-aos="zoom-in" data-aos-delay="1700">
+                    <h1 class="V-title V-title-top">
+                        <span th:text="${blog.title}"> 说说JAVA线程池</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<main class="post-container content">
+    <div class="row">
+        <div id="main-content" class="col s12 m12 l9">
+            <!-- 文章内容详情 -->
+            <div id="artDetail">
+                <div class="card">
+                    <div class="card-content article-info">
+                        <div class="row tag-cate">
+                            <div class="col s7">
+                                <div class="article-tag">
+                                    <a href="#">
+                                        <span class="original" style="transition: all .4s;"
+                                              th:text="${blog.articleType}">原创</span>
+                                    </a>
+                                    <a th:each="tag : ${blog.tags}" th:href="@{/tags/{id}(id=${tag.tagId})}">
+                                        <span class="chip bg-color" style="transition: all .4s;"
+                                              th:text="${tag.tagName}">JUC</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col s5 right-align">
+                                <div class="post-cate" th:if="${blog.special == '0'}">
+                                    <i class="fa fa-bookmark"></i>
+                                    <a th:href="@{/article/category?name={name}(name=${blog.typeName})}"
+                                       class="post-category"><span th:text="${blog.typeName}">编程之道 </span></a>
+                                </div>
+                                <div class="article-tag" th:if="${blog.special == '1'}">
+                                    <a th:href="${blog.specialContent}" target="_blank">
+                                        <span class="special bg-color" th:style="${blog.color}">原题链接</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-info">
+                            <div class="post-date info-break-policy">
+                                <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                                <span th:text="${#dates.format(blog.createTime,'yyyy年MM月dd日')}">2020年01月02日</span>
+                            </div>
+                            <div class="info-break-policy"><i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;
+                                <span id="docNum">5.1k</span>
+                            </div>
+                            <div id="busuanzi_container_page_pv" class="info-break-policy">
+                                <i class="fa fa-eye"></i> 阅读次数:&nbsp;&nbsp;
+                                <span th:text="${blog.views}"></span>
+                                <!--                                <span id="busuanzi_value_page_pv" ></span>-->
+                            </div>
+                            <div class="info-break-policy"><i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;<span
+                                    id="stime1">0小时0分0秒</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="clearfix" data-aos="fade-right" data-aos-delay="1600">
+                    <div class="card-content article-card-content">
+                        <div id="articleContent">
+                            <div id="doc-content">
+                                    <textarea id="aContent" style="display:none;" name="test-editormd-markdown-doc"
+                                              th:text="${blog.content}">
+
+                                    </textarea>
+                            </div>
+                            <hr class="clearfix" data-aos="fade-right">
+                            <div data-aos="fade-right">
+                                <span>您阅读这篇文章共耗时:</span>
+                                <span class="message-date-box" id="stime2">0小时16分34秒</span>
+                            </div>
+                            <div class="reprint" id="reprint-statement" style="border-radius:5px">
+
+                                <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                                    <span class="reprint-info">
+                    <a th:href="@{/article/read/{id}(id=${blog.id})}"
+                       th:text="@{https://www.slcp.top/article/read/{id}(id=${blog.id})}"></a>
+                </span>
+                                </div>
+                                <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fa fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                                    <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer"
+                       target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="http://slcp.top" target="_blank">Slcp</a>
+                    !
+                </span><br>
+                                    <span class="reprint-info">
+                                          &ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;转载文章以及部分引用均为自己整理记录学习而用，若有侵权，请联系删除。
+                                    </span>
+                                </div>
+                            </div>
+                            <script async defer>
+                                document.addEventListener("copy", function (e) {
+                                    let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+                                    M.toast({html: toastHTML})
+                                });
+
+                                function navToReprintStatement() {
+                                    $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+                                }
+
+
+                            </script>
+                            <div class="tag_share" style="display: block;">
+                                <div class="post-meta__tag-list" style="display: inline-block;">
+                                    <div class="article-tag">
+                                        <a th:each="tag : ${blog.tags}" th:href="@{/tags/{id}(id=${tag.tagId})}">
+                                            <span class="chip bg-color" style="transition: all .4s;"
+                                                  th:text="${tag.tagName}">JUC</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-up">
+                    <div id="comment" class="card valine-card">
+                        <div class="card-content">
+                            <div class="comment_headling head-comment">
+                                <i class="fa fa-comments" aria-hidden="true"></i>
+                                <span>评论</span>
+                                <div class="comment-switch">
+                                    <span class="first-comment">Valine&ensp;</span>
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <div class="sliderV round" id="sliderV"></div>
+                                    </label>
+                                    <span class="second-comment"> &ensp;Gitalk</span>
+                                </div>
+                            </div>
+                            <!-- Gitalk 评论 start  -->
+                            <!--                            <script src="https://cdn.bootcdn.net/ajax/libs/gitalk/1.7.2/gitalk.min.js"></script>-->
+                            <!--                            <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>-->
+                            <script src="../static/js/gitalk.min.js" th:src="@{/js/gitalk.min.js}"></script>
+                            <div id="commentArea1" style="display:none;">
+                                <div style="height: 30px"></div>
+                                <div id="gitalk-container"></div>
+                            </div>
+                            <script type="text/javascript">
+                                var k_host = window.location.host;
+                                var gitalk = new Gitalk({
+                                    // gitalk的主要参数
+                                    clientID: `e7cb9cdf3720f1f8578c`,
+                                    clientSecret: `389cea354843d15b79539a8b04573463fc47780f`,
+                                    repo: `SlcpBlog`,
+                                    owner: 'sunlicp',
+                                    admin: ['sunlicp'],
+                                    id: 'read[[${blog.id}]]', //注意id一定不要重复，这里是举个例子，可以写中文，如果重复了，就会把其他地方的评论显示过来
+                                    proxy: 'https://' + k_host + '/login/oauth/access_token'
+                                });
+                                gitalk.render('gitalk-container');
+
+                            </script>
+                            <!-- Gitalk end -->
+                            <!--Valine-->
+                            <div id="commentArea2">
+                                <div style="height: 80px"></div>
+                                <div id="vcomments"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--toc-->
+        <div id="toc-aside" class="col l3 hide-on-med-and-down expanded">
+            <div class="toc-widget" style="height:80%;width:450px;overflow:auto;top:30px;">
+                <h3><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</h3>
+                <div id="toc-content"></div>
+            </div>
+        </div>
+    </div>
+
+</main>
+<div id="floating-toc-btn" class="hide-on-med-and-down" data-aos="fade-left" data-aos-delay="2200">
+    <a class="btn-floating btn-large waves-effect waves-light" title="切换阅读模式">
+        <svg t="1612426735340" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+             p-id="15071" width="37" height="37">
+            <path d="M942.7456 293.2736h-35.9424l3.1232 474.5728c0 15.0528-17.8176 22.0672-31.3856 15.4624-147.0464-71.6288-297.472-7.2704-348.2112 15.9744-8.448 3.8912-18.0736-2.2528-18.0736-11.5712v-1.3824c0 9.5232-10.1376 15.7696-18.5856 11.3152-141.4656-75.0592-280.6272-30.2592-341.8112-7.3216-26.1632 9.7792-47.7696-11.4176-47.7696-11.4176l-0.2048 83.1488c0 17.92 44.4928-0.6656 62.3616-2.0992l340.1216-27.3408c1.6384-0.1536 9.5744-0.1536 11.2128 0l422.1952 38.2976c17.8688 1.4336 33.6384-2.0992 33.6384-20.0192V323.9936c0.0512-16.9984-13.7216-30.72-30.6688-30.72z"
+                  fill="#BC9BE0" p-id="15072"></path>
+            <path d="M164.3008 252.8768v472.2688c0 13.7216 13.1584 22.9376 25.088 17.6128 52.992-23.9104 181.7088-67.2768 306.2784 2.7648 7.424 4.1472 16.3328-1.6384 16.3328-10.5472V264.3456c0-7.6288-4.2496-14.5408-10.8544-17.5616-41.5744-18.8416-189.8496-72.3968-327.424-10.8032-6.144 2.7648-9.4208 9.8816-9.4208 16.896zM558.3872 252.8768v472.2688c0 13.7216 13.2096 22.9376 25.1392 17.6128 53.0944-23.9104 182.0672-67.2768 306.8928 2.7648 7.424 4.1472 16.384-1.6384 16.384-10.5472V264.3456c0-7.6288-4.2496-14.5408-10.9056-17.5616-41.6256-18.8416-190.208-72.3968-328.0384-10.8032-6.144 2.7648-9.472 9.8816-9.472 16.896z"
+                  fill="#FFB47A" p-id="15073"></path>
+            <path d="M942.7456 262.5536h-20.5824V235.52c0-14.3872-8.4992-27.2896-21.6576-32.9216-50.8928-21.76-229.12-86.1696-385.2288 0.1024-1.4848 0.8192-2.9184 1.792-4.2496 2.7648-1.6896-1.0752-3.4304-2.048-5.2736-2.8672-50.8928-21.76-229.12-86.1696-385.2288 0.1024a36.0192 36.0192 0 0 0-18.6368 31.488v28.3648h-14.0288c-25.3952 0-46.08 20.6848-46.08 46.08v526.848c0 12.8 5.4272 25.1904 14.848 33.8944a46.2592 46.2592 0 0 0 34.9184 12.0832l419.2768-33.7408c0.8192-0.0512 1.6384-0.0512 2.4576 0l425.8816 33.792a46.1312 46.1312 0 0 0 34.9184-12.0832 46.19776 46.19776 0 0 0 14.7968-33.8432V308.6336c-0.0512-25.4464-20.736-46.08-46.1312-46.08zM527.36 234.1888c0-1.8944 1.0752-3.6352 2.7648-4.5568 53.8624-29.7472 110.8992-39.936 163.6864-39.936 88.2688 0 164.7616 28.416 194.56 41.216 1.8432 0.768 3.0208 2.6112 3.0208 4.6592v491.52c0 2.4576-1.536 3.7888-2.4064 4.352-0.6656 0.4096-1.8432 0.9728-3.2768 0.768a4.74624 4.74624 0 0 1-1.536-0.4608 361.344 361.344 0 0 0-66.2528-24.576c-124.16-32.8192-239.0528 6.8608-290.56 29.8496V234.1888z m-394.8032 0c0-1.8944 1.0752-3.6352 2.7648-4.5568 143.872-79.5136 310.6304-19.1488 358.2976 1.28 1.8432 0.768 3.0208 2.56 3.0208 4.608v499.7632c-4.1984-2.1504-8.3968-4.1984-12.5952-6.144-1.28-0.6144-2.6112-1.1776-3.8912-1.7408-2.9696-1.3312-5.9392-2.6624-8.9088-3.8912-1.4336-0.6144-2.8672-1.1776-4.3008-1.792-3.0208-1.2288-6.0928-2.4064-9.1136-3.5328-1.2288-0.4608-2.4064-0.9216-3.6352-1.3312-4.1984-1.536-8.3968-2.9696-12.5952-4.3008-0.4096-0.1536-0.8192-0.256-1.2288-0.3584-3.7888-1.1776-7.5776-2.304-11.3664-3.3792-1.3312-0.3584-2.6112-0.7168-3.8912-1.0752-2.9184-0.768-5.888-1.536-8.8064-2.2528-1.3824-0.3584-2.7648-0.6656-4.1472-0.9728-3.1232-0.7168-6.1952-1.3824-9.2672-1.9968-1.0752-0.2048-2.0992-0.4608-3.1744-0.6656-4.1472-0.8192-8.2432-1.536-12.3392-2.1504l-1.9968-0.3072c-3.4304-0.512-6.8608-1.024-10.2912-1.4336l-3.84-0.4608c-2.8672-0.3072-5.7344-0.6144-8.6016-0.8704-1.28-0.1024-2.56-0.256-3.84-0.3584-3.1744-0.256-6.2976-0.4608-9.4208-0.6656l-2.56-0.1536c-3.9936-0.2048-7.936-0.3584-11.8784-0.4608-0.768 0-1.536 0-2.304-0.0512-2.3552-0.0512-4.7104-0.1024-7.0656-0.1024-0.6144 0-1.1776 0.0512-1.792 0.0512-3.4816 0-6.8608 0.1024-10.2912 0.2048-1.2288 0.0512-2.4576 0.0512-3.6864 0.1024-4.5568 0.1536-9.0624 0.4096-13.5168 0.7168l-3.84 0.3072c-3.2256 0.256-6.4 0.512-9.5744 0.8192-1.6896 0.1536-3.328 0.3584-4.9664 0.512-2.7648 0.3072-5.5296 0.6144-8.2432 0.9728-1.6896 0.2048-3.3792 0.4608-5.0176 0.6656-2.7136 0.3584-5.4272 0.768-8.0896 1.1776-1.536 0.256-3.072 0.4608-4.5568 0.7168-3.1744 0.512-6.3488 1.0752-9.4208 1.6896-0.9216 0.1536-1.792 0.3072-2.7136 0.512-3.9424 0.768-7.8336 1.5872-11.6224 2.4064-1.2288 0.256-2.4064 0.5632-3.584 0.8192-2.6112 0.6144-5.2224 1.1776-7.8336 1.8432-1.4336 0.3584-2.7648 0.7168-4.1984 1.024-2.304 0.5632-4.608 1.1776-6.8608 1.792-1.3824 0.3584-2.7136 0.7168-4.0448 1.0752-2.304 0.6144-4.5568 1.28-6.7584 1.9456-1.1776 0.3584-2.3552 0.6656-3.4816 1.024-2.816 0.8704-5.5808 1.6896-8.2944 2.56-0.4608 0.1536-0.9216 0.256-1.3312 0.4096-3.1232 1.024-6.144 1.9968-9.0624 3.0208-0.9728 0.3072-1.8432 0.6656-2.816 0.9728-1.9968 0.6656-3.9424 1.3824-5.8368 2.048-1.024 0.3584-2.048 0.768-3.072 1.1264-1.7408 0.6144-3.4304 1.28-5.0688 1.8944-0.9728 0.3584-1.8944 0.7168-2.816 1.0752-1.6896 0.6656-3.328 1.3312-4.9152 1.9456-0.7168 0.3072-1.4848 0.6144-2.2016 0.8704-2.2528 0.9216-4.4032 1.792-6.4512 2.6624-2.2016 0.9216-3.9424 0.1536-4.8128-0.4096a5.00224 5.00224 0 0 1-2.304-4.3008V234.1888z m825.5488 601.344c0 4.352-1.7408 8.3456-4.9152 11.264-3.1744 2.9696-7.3728 4.352-11.6224 4.0448l-425.8304-33.792a44.36992 44.36992 0 0 0-7.3728 0l-419.2768 33.7408c-4.2496 0.3584-8.448-1.0752-11.6224-4.0448-3.1744-2.9184-4.9664-6.9632-4.9664-11.3152V308.6336c0-8.448 6.912-15.36 15.36-15.36h14.0288v435.9168a35.6864 35.6864 0 0 0 16.0768 29.9008 35.75296 35.75296 0 0 0 33.792 3.072c55.0912-23.4496 197.888-70.0928 334.5408 2.4064 1.024 0.512 2.048 0.9728 3.072 1.3824 0.3072 0.1024 0.6656 0.2048 0.9728 0.3072 0.7168 0.256 1.4336 0.512 2.2016 0.6656 0.4096 0.1024 0.768 0.1536 1.1776 0.256 0.6656 0.1536 1.3312 0.3072 2.048 0.3584 0.4096 0.0512 0.8704 0.1024 1.28 0.1024 0.6656 0.0512 1.28 0.1024 1.9456 0.1024h0.4096c0.256 0 0.512-0.0512 0.8192-0.0512 0.768 0 1.536-0.0512 2.304-0.1536l1.28-0.1536c0.768-0.1024 1.4848-0.256 2.2528-0.4608l1.2288-0.3072c0.8192-0.256 1.5872-0.512 2.3552-0.8192 0.3072-0.1536 0.6656-0.256 0.9728-0.3584 0.0512-0.0512 0.1536-0.0512 0.2048-0.1024 0.512 0.3072 1.0752 0.5632 1.6384 0.8192 0.3584 0.2048 0.7168 0.3584 1.0752 0.5632 1.1264 0.512 2.304 0.9728 3.4816 1.28h0.0512a21.26336 21.26336 0 0 0 4.7104 0.8704c0.8704 0.1024 1.6896 0.1536 2.56 0.2048 0.2048 0 0.3584 0.0512 0.5632 0.0512 0.3584 0 0.7168-0.0512 1.0752-0.0512 0.4608 0 0.9216-0.0512 1.3824-0.0512 0.6144-0.0512 1.2288-0.1536 1.8432-0.256 0.4096-0.0512 0.8704-0.1024 1.28-0.2048 0.6656-0.1536 1.3312-0.3072 1.9968-0.512l1.0752-0.3072c1.024-0.3584 2.048-0.7168 3.0208-1.1776 54.1184-24.7808 195.072-75.0592 334.2848-7.2704 1.3824 0.6656 2.816 1.28 4.2496 1.7408 0.768 0.256 1.5872 0.4608 2.4064 0.6656 0.6656 0.1536 1.28 0.4096 1.9456 0.512 0.8192 0.1536 1.6896 0.256 2.5088 0.3584 0.6144 0.1024 1.28 0.2048 1.8944 0.256 1.3312 0.1024 2.6112 0.1024 3.9424 0.0512h0.512c1.28-0.0512 2.56-0.256 3.84-0.4608 0.2048-0.0512 0.4096-0.0512 0.5632-0.0512 4.4032-0.8192 8.704-2.4576 12.6464-4.9152a35.6864 35.6864 0 0 0 16.8448-30.4128V293.2736h20.5824c8.448 0 15.36 6.912 15.36 15.36v526.8992z"
+                  fill="#333333" p-id="15074"></path>
+        </svg>
+    </a>
+</div>
+<div th:include="~{common :: .floor-top}"></div>
+<footer class="page-footer center-align">
+    <div class="container">
+        <div class="copyright" style="position: relative;top: 60px">
+            <div th:include="~{common :: .floor}"></div>
+            <div id="blog-message">
+                <div th:fragment="blogMessage">
+                    <div class="V-badge" title="您所在的IP地址">
+                        <span class="badge-subject">Y-IP</span><span class="badge-value bg-dm" id="ip"></span>
+                    </div>
+                    <!--<div class="V-badge" title="您所在的地理位置">
+                        <span class="badge-subject">GPS</span><span class="badge-value bg-bi" id="address"></span>
+                    </div>
+                    <div class="V-badge" title="您所在的纬度">
+                        <span class="badge-subject">LAT</span><span class="badge-value bg-dmt" id="lat"></span>
+                    </div>
+                    <div class="V-badge" title="您所在的经度">
+                        <span class="badge-subject">LON</span><span class="badge-value bg-cc" id="lon"></span>
+                    </div>-->
+                    <script>
+                        var str = {};
+                        $.get("https://api.ipify.org", function (data, status) {
+                            if ("success" == status) {
+                                document.getElementById("ip").innerText = data;
+                                /*document.getElementById("address").innerText = data.regionName + data.city;
+                                document.getElementById("lat").innerText = data.lat;
+                                document.getElementById("lon").innerText = data.lon;*/
+                            }
+                        });
+                    </script>
+                    <div class="V-badge" title="文章总数">
+                        <span class="badge-subject">AC</span><span class="badge-value bg-ms"
+                                                                   th:text="${blogTotal}"></span>
+                    </div>
+                    <div class="V-badge" title="访问总数">
+                        <span class="badge-subject">PV</span><span class="badge-value bg-ba"
+                                                                   style="background-color:	#FFA07A"
+                                                                   th:text="${blogViewTotal}"></span>
+                    </div>
+                    <div class="V-badge" title="运行时间">
+                        <span class="badge-subject">Running</span><span th:text="${blogDays}" id="runningTime"
+                                                                        class="badge-value bg-lc"
+                                                                        style="background-color:#a4a492"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img class="footer-skirt" src="../../static/images/my/skirt.webp" th:src="@{/images/my/skirt.webp}">
+</footer>
+<div th:replace="~{common :: .floor-js}"></div>
+<script src="../static/js/marked.min.js" th:src="@{/js/marked.min.js}"></script>
+<script src="../static/js/prettify.min.js" th:src="@{/js/prettify.min.js}"></script>
+<script src="../static/js/activate-power-mode.min.js" th:src="@{/js/activate-power-mode.min.js}"></script>
+<!--md转HTML-->
+<script src="../static/js/headroom.min.js" th:src="@{/js/headroom.min.js}"></script>
+<script src="../static/js/jQuery.headroom.min.js" th:src="@{/js/jQuery.headroom.min.js}"></script>
+<script src="../static/js/valine.min.js" th:src="@{/js/valine.min.js}"></script>
+<script src="../static/js/code.min.js" th:src="@{/js/code.min.js}"></script>
+<script src="../static/js/editormd.min.js" th:src="@{/js/editormd.min.js}"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '0zIhOC6AnmxUPH7D8wKoYJPu-gzGzoHsz',
+        appKey: 'K2ptrKq1XMlgQk0m6aqQQdhh',
+        enableQQ: true,
+        boolean: true,
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'wavatar',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '(～￣▽￣)～填写邮箱可以及时收到博主邮件通知哦️~ 💌',
+        master: ["229fb628e2627b885469f1d03329b587", "6ccc0188354895f49c2fd8fac81f906f"],
+        tagMeta: ["博主", "小伙伴", "访客"],
+        friends: ["56011fc531536b4b4d97ce8511ae8b3a", "42396d4490be2395679c3a8db613f2fd", "e115ba4019d359857b5f1a51870e9236", "b95befa7be1b26edbab9aa099ce54310", "9107611a1405be1c1328b8ed85943e9e", "49393485ebfea74386d23bb2a9e7b376", "e670a759c3d23eaa17af9211618b4f40", "2c8fb00f402cfba70982ec43a14a7d49", "e1b4f47ce61cc5032b9c52100d9749f7", "850155ad55cfb9e2c60d3c0f6d599ed6"]
+    });
+    setTimeout(function () {
+        $(".fa-macos").addClass("fa-apple").removeClass("fa-macos");
+        $(".vcount").before('<hr data-aos="fade-right">');
+        $('.cat-container').remove();
+    }, 1800);
+    var ss = 0, mm = 0, hh = 0;
+
+    function TimeGo() {
+        ss++;
+        if (ss >= 60) {
+            mm += 1;
+            ss = 0
+        }
+        if (mm >= 60) {
+            hh += 1;
+            mm = 0
+        }
+        ss_str = (ss < 10 ? "0" + ss : ss);
+        mm_str = (mm < 10 ? "0" + mm : mm);
+        tMsg = "" + hh + "小时" + mm_str + "分" + ss_str + "秒";
+        document.getElementById("stime1").innerHTML = tMsg;
+        document.getElementById("stime2").innerHTML = tMsg;
+        setTimeout("TimeGo()", 1000)
+    }
+
+    TimeGo();
+    document.getElementById("docNum").innerHTML = document.getElementById("aContent").value.length;
+</script>
+<script async="async">
+    POWERMODE.colorful = !0, POWERMODE.shake = !1, POWERMODE.mobile = !1, document.body.addEventListener("input", POWERMODE);
+</script>
+<div th:replace="~{common :: .svg}"></div>
+</body>
+</html>

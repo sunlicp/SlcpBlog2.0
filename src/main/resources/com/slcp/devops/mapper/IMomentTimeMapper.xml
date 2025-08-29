@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slcp.devops.mapper.IMomentTimeMapper">
+
+    <select id="findWallPage" parameterType="com.slcp.devops.entity.MtWalls"
+            resultType="com.slcp.devops.dto.MtWallsDTO">
+        SELECT
+        t1.id,
+        t1.color,
+        t1.type,
+        t1.message,
+        t1.name,
+        t1.user_id,
+        t1.img_url,
+        t1.label,
+        t1.moment
+        from mt_walls t1
+        where 1=1
+        <if test="mtWalls.type != null">
+            and t1.type = #{mtWalls.type}
+        </if>
+        <if test="mtWalls.label != null and mtWalls.label != -1">
+            and t1.label = #{mtWalls.label}
+        </if>
+        order by t1.moment desc
+    </select>
+</mapper>
+

@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="keywords" content="Slcpの关于我,Slcpの小房间"/>
+    <title>Slcpの悬赏栏</title>
+    <style>
+        #posts-chart,
+        #categories-chart,
+        #tags-chart {
+            width: 100%;
+            height: 300px;
+            margin: 0.5rem auto;
+            padding: 0.5rem;
+        }
+    </style>
+    <head th:replace="~{common :: .head}"></head>
+    <link rel="stylesheet" href="../static/css/timeline.css" th:href="@{/css/timeline.css}">
+    <link rel="stylesheet" href="../static/css/blog.min.css" th:href="@{/css/blog.min.css}">
+    <link rel="stylesheet" href="../static/css/SLAnimation.min.css" th:href="@{/css/SLAnimation.min.css}">
+</head>
+<body>
+<div th:replace="~{common :: .top-cat}"></div>
+<div th:replace="~{common :: .top}"></div>
+
+<div id="aboutImg" class="bg-cover pd-header about-cover"
+     style="height: 120vh;background-image: url(https://img.slcp.top/ft/IMG_3404.PNG)">
+    <div data-aos="fade-right" class="about-tag-about hide-on-med-and-down" data-aos-delay="1100">
+        <div class="V-title">
+            <span>"About </span> <span> me"</span>
+        </div>
+    </div>
+    <div data-aos="fade-left" class="hide-on-med-and-down" data-aos-delay="1100">
+        <div class="V-title">
+            <span class="about-tag-Slcp">"Slcp"</span>
+            <span class="about-tag-blog">"blog"</span>
+        </div>
+    </div>
+    <div class="center-align about-typed">
+        <div class="Z-title">
+            <span>悬赏栏</span>
+        </div>
+        <span id="subtitle" style="font-size:28px;"></span>
+    </div>
+    <div class="hide-on-med-and-down V-img" data-aos="zoom-in" data-aos-delay="1100">
+    </div>
+    <div class="hide-on-large-only center-align m-V-img" style="width: 100vw" data-aos="zoom-in" data-aos-delay="1100">
+        <div class="V-title m-V-title">
+            <span>"About </span> <span> me"</span>
+        </div>
+    </div>
+</div>
+<main class="content">
+    <div id="aboutme" class="container about-container">
+        <div class="card">
+            <div class="card-content">
+                <div class="row">
+                    <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
+
+                        <div class="statis">
+                            <span class="count"><a th:href="@{/article/}"><span
+                                    th:text="${qStBySum.blogs}">26</span></a></span>
+                            <span class="name">文章</span>
+                        </div>
+                        <div class="statis">
+                            <span class="count"><a th:href="@{/article/}"><span
+                                    th:text="${qStBySum.types}">26</span></a></span>
+                            <span class="name">分类</span>
+                        </div>
+                        <div class="statis">
+                            <span class="count"><a th:href="@{/tags/}"><span
+                                    th:text="${qStBySum.tags}">26</span></a></span>
+                            <span class="name">标签</span>
+                        </div>
+                    </div>
+                    <div class="col s12 m12 l4">
+                        <div class="profile center-align">
+                            <div class="avatar">
+                                <img class="lazyload circle responsive-img avatar-img"
+                                     src="../static/images/lodingPeer.gif"
+                                     th:src="@{/images/lodingPeer.gif}"
+                                     data-src="../static/images/me.jpg"
+                                     th:data-src="@{/images/me.jpg}" alt="Slcp">
+                            </div>
+                            <div class="author">
+                                <div class="V-title center-align" style="top:-20px;left: 0;font-size: 4em;">
+                                    <span>"Slcp"</span></div>
+                                <div class="career">一个追求诗意的程序猿</div>
+                                <div class="career">30亿贝利</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col l4 hide-on-med-and-down" data-aos="zoom-in-left">
+                        <div class="social-link">
+                            <a href="mailto:2890046448@qq.com" class="tooltipped" target="_blank"
+                               data-tooltip="邮件联系我: 2890046448@qq.com" data-position="top" data-delay="50">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="https://wpa.qq.com/msgrd?v=3&uin=2890046448&site=qq&menu=yes" class="tooltipped"
+                               target="_blank" data-tooltip="QQ联系我: 2890046448" data-position="top" data-delay="50">
+                                <i class="fab fa-qq"></i>
+                            </a>
+                            <a href="https://github.com/sunlicp" class="tooltipped" target="_blank"
+                               data-tooltip="github联系我:sunlicp" data-position="top" data-delay="50">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--                <div class="introduction center-align" data-aos="fade-up">醒来觉得甚是爱你。</div>-->
+                <div class="introduction center-align" data-aos="fade-up">众里寻他千百度。蓦然回首，那人却在灯火阑珊处。
+                </div>
+                <img class="lazyload zoombe-about" data-aos="slide-left" src="../static/images/lodingPeer.gif"
+                     th:src="@{/images/lodingPeer.gif}"
+                     data-src="../static/images/zoomb.gif"
+                     th:data-src="@{/images/zoomb.gif}" style="top: 170px" width="200" height="200">
+                <hr data-aos="fade-right">
+                <div class="about-inner">
+                    <h3 data-aos="flip-up">不定期推荐歌曲哦 ─=≡Σ(((つ•̀ω•́)つ</h3>
+                    <div data-aos="fade-up">
+                        <div class="card v-card" style="max-width: 900px;margin: 0 auto;top: 20px">
+                            <div class="new-item-badge"><span th:text="${blogMusic.musicName}">童话镇</span></div>
+                            <div class="card-content">
+                                <iframe autoplay frameborder="no" border="0" marginwidth="0" marginheight="0"
+                                        width="100%" height="86" th:src="${blogMusic.musicPath}"
+                                        src="https://music.163.com/outchain/player?type=2&id=413829859&auto=1&height=66"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mainV hide-on-med-and-down" data-aos="fade-left"
+                         style="top: -22px;left: 160px;height: 100px;z-index: 2;">
+                        <div class="keyboard">
+                            <div class="keyboard__front face-keyboard">
+                                <div class="keyboard__f-top">
+                                    <div class="keyboard__speaker"></div>
+                                    <div class="keyboard__buttons">
+                                        <div class="keyboard__button"></div>
+                                        <div class="keyboard__button"></div>
+                                        <div class="keyboard__button"></div>
+                                        <div class="keyboard__button"></div>
+                                        <div class="keyboard__button"></div>
+                                        <div class="keyboard__button"></div>
+                                    </div>
+                                    <div class="keyboard__led">
+                                        <div class="keyboard__line">
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                        </div>
+                                        <div class="keyboard__line">
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                        </div>
+                                        <div class="keyboard__line">
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                        </div>
+                                        <div class="keyboard__line">
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                        </div>
+                                        <div class="keyboard__line">
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                        </div>
+                                        <div class="keyboard__line">
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                        </div>
+                                        <div class="keyboard__line">
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                        </div>
+                                        <div class="keyboard__line">
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                        </div>
+                                        <div class="keyboard__line">
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                        </div>
+                                        <div class="keyboard__line">
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                            <div class="keyboard__dot"></div>
+                                        </div>
+                                    </div>
+                                    <div class="keyboard__buttons">
+                                        <div class="keyboard__button"></div>
+                                        <div class="keyboard__button"></div>
+                                        <div class="keyboard__button"></div>
+                                        <div class="keyboard__button"></div>
+                                        <div class="keyboard__button"></div>
+                                        <div class="keyboard__button"></div>
+                                    </div>
+                                    <div class="keyboard__speaker"></div>
+                                </div>
+                                <div class="keyboard__f-bottom">
+                                    <div class="key">
+                                        <div class="key__front face-key key__front-1"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key">
+                                        <div class="key__front face-key key__front-2"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key">
+                                        <div class="key__front face-key key__front-3"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key">
+                                        <div class="key__front face-key key__front-4"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key">
+                                        <div class="key__front face-key key__front-5"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key">
+                                        <div class="key__front face-key key__front-6"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key">
+                                        <div class="key__front face-key key__front-7"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key">
+                                        <div class="key__front face-key key__front-8"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key">
+                                        <div class="key__front face-key key__front-9"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key">
+                                        <div class="key__front face-key key__front-10"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key">
+                                        <div class="key__front face-key key__front-11"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key">
+                                        <div class="key__front face-key key__front-12"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key">
+                                        <div class="key__front face-key key__front-13"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key">
+                                        <div class="key__front face-key key__front-14"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key">
+                                        <div class="key__front face-key key__front-15"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key">
+                                        <div class="key__front face-key key__front-16"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key">
+                                        <div class="key__front face-key key__front-17"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key">
+                                        <div class="key__front face-key key__front-18"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key">
+                                        <div class="key__front face-key key__front-19"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key">
+                                        <div class="key__front face-key key__front-20"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key">
+                                        <div class="key__front face-key key__front-21"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key key--black key--black-1">
+                                        <div class="key__front face-key"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key key--black key--black-2">
+                                        <div class="key__front face-key"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key key--black key--black-3">
+                                        <div class="key__front face-key"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key key--black key--black-4">
+                                        <div class="key__front face-key"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key key--black key--black-5">
+                                        <div class="key__front face-key"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key key--black key--black-6">
+                                        <div class="key__front face-key"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key key--black key--black-7">
+                                        <div class="key__front face-key"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key key--black key--black-8">
+                                        <div class="key__front face-key"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key key--black key--black-9">
+                                        <div class="key__front face-key"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key key--black key--black-10">
+                                        <div class="key__front face-key"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key key--black key--black-11">
+                                        <div class="key__front face-key"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key key--black key--black-12">
+                                        <div class="key__front face-key"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key key--black key--black-13">
+                                        <div class="key__front face-key"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                    <div class="key key--black key--black-14">
+                                        <div class="key__front face-key"></div>
+                                        <div class="key__back face-key"></div>
+                                        <div class="key__right face-key"></div>
+                                        <div class="key__left face-key"></div>
+                                        <div class="key__top face-key"></div>
+                                        <div class="key__bottom face-key"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="keyboard__back face-keyboard"></div>
+                            <div class="keyboard__right face-keyboard"></div>
+                            <div class="keyboard__left face-keyboard"></div>
+                            <div class="keyboard__top face-keyboard"></div>
+                            <div class="keyboard__bottom face-keyboard"></div>
+                        </div>
+                    </div>
+                    <!--关于我-->
+                    <h3 data-aos="flip-up">😅 关于我</h3>
+                    <div data-aos="fade-up">
+                        <div class="card v-card" style="max-width: 900px;margin: 0 auto;top: 20px">
+                            <div class="new-item-badge">OvO</div>
+                            <div class="card-content v-order">
+                                <ol style="padding-inline-start: 5px !important;">
+                                    <li>
+                                        <div style="font-size: 18px">博主很懒，竟然啥也没留~(〃＞皿＜)</div>
+                                    </li>
+                                    <!--<li><div style="font-size: 18px">开始搬砖，不知道什么时候能搞博客了...</div></li>
+                                    <li><div style="font-size: 18px">之后再说吧.</div> </li>-->
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!--关于本站-->
+                    <h3 data-aos="flip-up">💻 关于本站</h3>
+                    <div data-aos="fade-up">
+                        <div class="card v-card" style="max-width: 900px;margin: 0 auto;top:20px">
+                            <div class="new-item-badge">Slcp.top</div>
+                            <div class="card-content v-order">
+                                <ol style="padding-inline-start: 5px !important;">
+                                    <li>
+                                        <div style="font-size: 18px">
+                                            记录自己的来路，分享自己的知识，这就是自己博客诞生的缘由吧。
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div style="font-size: 18px">对于我这个搞后端的来说，改前端改得让俺不言而喻🤡。
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div style="font-size: 18px">前端界面是从各个大佬网站借鉴而来，在此感谢Vino。
+                                        </div>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="postCharts" class="post-charts">
+                    <hr data-aos="fade-right">
+                    <h1 data-aos="zoom-in-up">
+                        <i class="fa fa-bar-chart"></i>&nbsp;&nbsp;文章统计图
+                    </h1>
+                    <div class="row">
+                        <div class="chart col s12 m6 l4" data-aos="zoom-in-up">
+                            <div id="posts-chart"></div>
+                        </div>
+
+                        <div class="chart col s12 m6 l4" data-aos="zoom-in-up">
+                            <div id="categories-chart"></div>
+                        </div>
+
+                        <div class="chart col s12 m6 l4" data-aos="zoom-in-up">
+                            <div id="tags-chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div th:include="~{common :: .floor-top}"></div>
+<footer class="page-footer center-align">
+    <div class="container">
+        <div class="copyright" style="position: relative;top: 60px">
+            <div th:include="~{common :: .floor}"></div>
+            <div id="blog-message">
+                <div th:fragment="blogMessage">
+                    <div class="V-badge" title="您所在的IP地址">
+                        <span class="badge-subject">Y-IP</span><span class="badge-value bg-dm" id="ip"></span>
+                    </div>
+                    <!--<div class="V-badge" title="您所在的地理位置">
+                        <span class="badge-subject">GPS</span><span class="badge-value bg-bi" id="address"></span>
+                    </div>
+                    <div class="V-badge" title="您所在的纬度">
+                        <span class="badge-subject">LAT</span><span class="badge-value bg-dmt" id="lat"></span>
+                    </div>
+                    <div class="V-badge" title="您所在的经度">
+                        <span class="badge-subject">LON</span><span class="badge-value bg-cc" id="lon"></span>
+                    </div>-->
+                    <script>
+                        var str = {};
+                        $.get("https://api.ipify.org", function (data, status) {
+                            if ("success" == status) {
+                                document.getElementById("ip").innerText = data;
+                                /*document.getElementById("address").innerText = data.regionName + data.city;
+                                document.getElementById("lat").innerText = data.lat;
+                                document.getElementById("lon").innerText = data.lon;*/
+                            }
+                        });
+                    </script>
+                    <div class="V-badge" title="文章总数">
+                        <span class="badge-subject">AC</span><span class="badge-value bg-ms"
+                                                                   th:text="${blogTotal}"></span>
+                    </div>
+                    <div class="V-badge" title="访问总数">
+                        <span class="badge-subject">PV</span><span class="badge-value bg-ba"
+                                                                   style="background-color:	#FFA07A"
+                                                                   th:text="${blogViewTotal}"></span>
+                    </div>
+                    <div class="V-badge" title="运行时间">
+                        <span class="badge-subject">Running</span><span th:text="${blogDays}" id="runningTime"
+                                                                        class="badge-value bg-lc"
+                                                                        style="background-color:#a4a492"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img class="footer-skirt" src="../../static/images/my/skirt.webp" th:src="@{/images/my/skirt.webp}">
+</footer>
+<div th:replace="~{common :: .floor-js}"></div>
+<script src="../static/js/masonry.pkgd.min.js" th:src="@{/js/masonry.pkgd.min.js}"></script>
+<script src="../static/js/echarts.min.js" th:src="@{/js/echarts.min.js}"></script>
+<script>
+    $(function () {
+        $.ajax({
+            "url": "/about/sChart",
+            "type": "GET",
+            "success": function (data) {
+                let postsChart = echarts.init(document.getElementById('posts-chart'));
+                let categoriesChart = echarts.init(document.getElementById('categories-chart'));
+                let tagsChart = echarts.init(document.getElementById('tags-chart'));
+                let postsOption = {
+                    title: {
+                        text: '文章发布统计图',
+                        top: -3,
+                        x: 'center'
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    xAxis: {
+                        type: 'category',
+                        data: data.date
+                    },
+                    yAxis: {
+                        type: 'value',
+                    },
+                    series: [
+                        {
+                            name: '文章篇数',
+                            type: 'line',
+                            color: ['#6772e5'],
+                            data: data.count,
+                            markPoint: {
+                                symbolSize: 45,
+                                color: ['#fa755a', '#3ecf8e', '#82d3f4'],
+                                data: [{
+                                    type: 'max',
+                                    itemStyle: {color: ['#3ecf8e']},
+                                    name: '最大值'
+                                }, {
+                                    type: 'min',
+                                    itemStyle: {color: ['#fa755a']},
+                                    name: '最小值'
+                                }]
+                            },
+                            markLine: {
+                                itemStyle: {color: ['#ab47bc']},
+                                data: [
+                                    {type: 'average', name: '平均值'}
+                                ]
+                            }
+                        }
+                    ]
+                };
+                let categoriesOption = {
+                    title: {
+                        text: '文章分类统计图',
+                        top: -3,
+                        x: 'center'
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: "{a} <br/>{b} : {c} ({d}%)"
+                    },
+                    series: [
+                        {
+                            name: '分类',
+                            type: 'pie',
+                            radius: '50%',
+                            color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
+                            data: data.categoryEchartsList,
+                            itemStyle: {
+                                emphasis: {
+                                    shadowBlur: 10,
+                                    shadowOffsetX: 0,
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                }
+                            }
+                        }
+                    ]
+                };
+                let tagsOption = {
+                    title: {
+                        text: 'TOP10 标签统计图',
+                        top: -3,
+                        x: 'center'
+                    },
+                    tooltip: {},
+                    xAxis: [
+                        {
+                            type: 'category',
+                            data: data.tag
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value'
+                        }
+                    ],
+                    series: [
+                        {
+                            type: 'bar',
+                            color: ['#82d3f4'],
+                            barWidth: 18,
+                            data: data.tagCount,
+                            markPoint: {
+                                symbolSize: 45,
+                                data: [{
+                                    type: 'max',
+                                    itemStyle: {color: ['#3ecf8e']},
+                                    name: '最大值'
+                                }, {
+                                    type: 'min',
+                                    itemStyle: {color: ['#fa755a']},
+                                    name: '最小值'
+                                }],
+                            },
+                            markLine: {
+                                itemStyle: {color: ['#ab47bc']},
+                                data: [
+                                    {type: 'average', name: '平均值'}
+                                ]
+                            }
+                        }
+                    ]
+                };
+                // render the charts
+                postsChart.setOption(postsOption);
+                categoriesChart.setOption(categoriesOption);
+                tagsChart.setOption(tagsOption);
+            }
+        })
+    });
+</script>
+<div th:replace="~{common :: .svg}"></div>
+</body>
+</html>
