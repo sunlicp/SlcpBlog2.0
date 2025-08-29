@@ -1,4 +1,4 @@
-# SlcpBlog
+# SlcpBlog2.0
 🌍
 *[English](/docs/README-en.md) ∙ [简体中文](README.md)*
 
