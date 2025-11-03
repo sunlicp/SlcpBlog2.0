@@ -23,7 +23,6 @@ import com.baomidou.mybatisplus.core.metadata.TableInfoHelper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.sql.SqlScriptUtils;
 import com.slcp.devops.core.mybatis.injector.DevOpsSqlMethod;
-import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.executor.keygen.Jdbc3KeyGenerator;
 import org.apache.ibatis.executor.keygen.KeyGenerator;
 import org.apache.ibatis.executor.keygen.NoKeyGenerator;
@@ -35,9 +34,13 @@ import org.apache.ibatis.mapping.SqlSource;
  *
  * @author slcp
  */
-@RequiredArgsConstructor
 public class AbstractInsertMethod extends AbstractMethod {
-	private final DevOpsSqlMethod sqlMethod;
+    private final DevOpsSqlMethod sqlMethod;
+
+    public AbstractInsertMethod(DevOpsSqlMethod sqlMethod) {
+        super(sqlMethod.getMethod());
+        this.sqlMethod = sqlMethod;
+    }
 
 	@Override
 	public MappedStatement injectMappedStatement(Class<?> mapperClass, Class<?> modelClass, TableInfo tableInfo) {

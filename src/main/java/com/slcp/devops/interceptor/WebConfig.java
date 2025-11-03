@@ -1,7 +1,6 @@
 package com.slcp.devops.interceptor;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -13,6 +12,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
+    // 暂时注释掉登录拦截器，因为 LoginInterceptor 已被注释
+    /*
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginInterceptor())
@@ -20,6 +21,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/sys")
                 .excludePathPatterns("/sys/login");
     }
+    */
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {

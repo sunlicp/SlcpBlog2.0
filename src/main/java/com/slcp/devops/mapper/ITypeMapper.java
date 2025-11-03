@@ -2,7 +2,6 @@ package com.slcp.devops.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.slcp.devops.dto.TypeDTO;
-import com.slcp.devops.entity.SysRole;
 import com.slcp.devops.entity.Type;
 import org.springframework.stereotype.Repository;
 

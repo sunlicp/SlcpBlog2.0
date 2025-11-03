@@ -3,9 +3,9 @@ package com.slcp.devops.service.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.slcp.devops.config.DoQueryCache;
 import com.slcp.devops.service.*;
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 

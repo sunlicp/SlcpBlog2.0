@@ -10,6 +10,11 @@ spring:
     password: 123456
     url: jdbc:mysql://mysql5:3306/myblog?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
 #    url: jdbc:mysql://127.0.0.1:3306/myblog?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
+#    url: jdbc:mysql://101.43.173.237:3306/myblog?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
+  # 禁用 Spring Boot 3.4.0 新增的数据库初始化依赖检测，以兼容 MyBatis-Plus
+  sql:
+    init:
+      mode: never
   #redis配置
   redis:
     host: redis
@@ -35,6 +40,25 @@ spring:
     multipart:
       max-file-size: 10MB
       max-request-size: 100MB
+  # Spring AI 配置
+  ai:
+    # Ollama 配置（默认使用）
+    ollama:
+      base-url: http://127.0.0.1:11434
+      chat:
+        options:
+          #model: qwen3:0.6b
+          model: qwen2.5:0.5b
+          temperature: 0.7
+    # OpenAI 配置（可选，需要配置 API Key）
+    openai:
+      api-key: ${OPENAI_API_KEY:}
+      base-url: ${OPENAI_BASE_URL:https://api.openai.com}
+      chat:
+        options:
+          model: gpt-3.5-turbo
+          temperature: 0.7
+          max-tokens: 2000
 
 # 发给谁的邮箱 (自定义属性)
 she:
@@ -64,9 +88,8 @@ qq:
     appid: *
     appkey: *
     #qq授权回调地址
-    url: http://www.Slcp.top/qqlogin
-openai:
-  token: *
-  timeout: 5000
+    url: http://www.sunlicp.cn/qqlogin
+
+# 旧的 OpenAI 配置已迁移到 spring.ai.openai
 
 

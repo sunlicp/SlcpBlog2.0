@@ -2,9 +2,9 @@ package com.slcp.devops.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.slcp.devops.config.DoQueryCache;
+import com.slcp.devops.dto.TypeDTO;
 import com.slcp.devops.entity.Type;
 import com.slcp.devops.mapper.ITypeMapper;
-import com.slcp.devops.dto.TypeDTO;
 import com.slcp.devops.service.ITypeService;
 import org.springframework.stereotype.Service;
 

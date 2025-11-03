@@ -2,7 +2,7 @@ package com.slcp.devops.controller;
 
 import com.slcp.devops.dto.PictureUploadDTO;
 import com.slcp.devops.service.IPictureService;
-import io.swagger.annotations.Api;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -19,7 +19,7 @@ import java.util.List;
  */
 @Controller
 @AllArgsConstructor
-@Api(value = "前台照片墙接口查询", tags = "前台照片墙接口查询")
+@Tag(name = "前台照片墙接口查询", description = "前台照片墙接口查询")
 @Slf4j
 public class PictureShowController {
 

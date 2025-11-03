@@ -3,7 +3,7 @@ package com.slcp.devops.entity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -23,14 +23,14 @@ public class ArticleType implements Serializable {
     /**
      * 业务主表主键ID
      */
-    @ApiModelProperty(value = "业务主表主键ID")
+    @Schema(description = "业务主表主键ID")
     @TableId(value = "article_id")
     private Integer articleId;
 
     /**
      * 文章类型
      */
-    @ApiModelProperty(value = "文章类型")
+    @Schema(description = "文章类型")
     @TableField(value = "article_type")
     private String articleType;
 

@@ -1,4 +1,4 @@
-//package com.slcp.devops.controller;
+package com.slcp.devops.controller;//package com.slcp.devops.controller;
 //
 //import com.slcp.devops.pojo.QqUser;
 //import com.slcp.devops.service.QqUserService;
@@ -186,7 +186,7 @@
 // *//*
 //
 //
-//    @GetMapping(value = "/auth")
+//    @GetMapping(summary = "/auth")
 //    @ResponseBody
 //    public String qqAuth(HttpSession session) {
 //        // 用于第三方应用防止CSRF攻击
@@ -213,7 +213,7 @@
 // *//*
 //
 //
-//    @GetMapping(value = "/callback")
+//    @GetMapping(summary = "/callback")
 //    public String qqCallback(HttpServletRequest request) throws Exception {
 //        HttpSession session = request.getSession();
 //        // 得到Authorization Code

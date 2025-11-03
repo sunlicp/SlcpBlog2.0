@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -28,28 +28,28 @@ public class SysAdmin extends BaseEntity<SysAdmin> implements Serializable {
     /**
      * 昵称
      */
-    @ApiModelProperty(value = "昵称")
+    @Schema(description = "昵称")
     @TableField(value = "nickname")
     private String nickname;
 
     /**
      * 账号
      */
-    @ApiModelProperty(value = "账号")
+    @Schema(description = "账号")
     @TableField(value = "username")
     private String username;
 
     /**
      * 密码
      */
-    @ApiModelProperty(value = "密码")
+    @Schema(description = "密码")
     @TableField(value = "password", select = false)
     private String password;
 
     /**
      * 角色id
      */
-    @ApiModelProperty(value = "角色id")
+    @Schema(description = "角色id")
     @JsonSerialize(using = ToStringSerializer.class)
     @TableField(value = "rid")
     private Long rid;
@@ -58,7 +58,7 @@ public class SysAdmin extends BaseEntity<SysAdmin> implements Serializable {
      * 状态
      *
      */
-    @ApiModelProperty(value = "状态")
+    @Schema(description = "状态")
     @JsonSerialize(using = ToStringSerializer.class)
     @TableField(value = "is_status")
     private boolean status;
@@ -66,35 +66,35 @@ public class SysAdmin extends BaseEntity<SysAdmin> implements Serializable {
     /**
      * 邮箱
      */
-    @ApiModelProperty(value = "邮箱")
+    @Schema(description = "邮箱")
     @TableField(value = "email")
     private String email;
 
     /**
      * 令牌
      */
-    @ApiModelProperty(value = "令牌")
+    @Schema(description = "令牌")
     @TableField(value = "token", fill = FieldFill.INSERT)
     private String token;
 
     /**
      * 头像
      */
-    @ApiModelProperty(value = "头像")
+    @Schema(description = "头像")
     @TableField(value = "avatar")
     private String avatar;
 
     /**
      * 上次登录地址
      */
-    @ApiModelProperty(value = "上次登录地址")
+    @Schema(description = "上次登录地址")
     @TableField(value = "last_login_address")
     private String lastLoginAddress;
 
     /**
      * 上次登录时间
      */
-    @ApiModelProperty(value = "上次登录时间")
+    @Schema(description = "上次登录时间")
     @TableField(value = "last_login_time")
     @JsonSerialize
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")

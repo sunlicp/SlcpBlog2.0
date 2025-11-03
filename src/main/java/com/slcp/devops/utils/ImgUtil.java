@@ -1,14 +1,13 @@
 package com.slcp.devops.utils;
 
-import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
 import cn.hutool.http.HttpUtil;
 import com.alibaba.fastjson.JSONObject;
-import com.slcp.devops.api.Result;
 import com.slcp.devops.constant.DevOpsConstant;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.net.ssl.HttpsURLConnection;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,8 +16,6 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.UUID;
-import javax.net.ssl.HttpsURLConnection;
 
 /**
  * @author: SunXiaoWei

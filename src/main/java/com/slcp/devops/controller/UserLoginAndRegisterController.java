@@ -2,10 +2,14 @@ package com.slcp.devops.controller;
 
 import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.ObjectUtil;
-import com.slcp.devops.utils.*;
 import com.slcp.devops.entity.RegisterUser;
 import com.slcp.devops.service.RegisterService;
-import io.swagger.annotations.Api;
+import com.slcp.devops.utils.*;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.mail.MessagingException;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -14,10 +18,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.imageio.ImageIO;
-import javax.mail.MessagingException;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.HashMap;
@@ -33,7 +33,7 @@ import java.util.UUID;
 @CrossOrigin
 @RequestMapping("/userLoginAndRegister")
 @AllArgsConstructor
-@Api(value = "登录接口", tags = "登录接口")
+@Tag(name = "登录接口", description = "登录接口")
 @Slf4j
 public class UserLoginAndRegisterController {
 

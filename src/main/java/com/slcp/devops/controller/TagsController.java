@@ -1,10 +1,10 @@
 package com.slcp.devops.controller;
 
 import com.slcp.devops.dto.FirstPageDTO;
-import com.slcp.devops.service.IBlogService;
 import com.slcp.devops.dto.TagDTO;
+import com.slcp.devops.service.IBlogService;
 import com.slcp.devops.service.ITagService;
-import io.swagger.annotations.Api;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -22,7 +22,7 @@ import java.util.List;
  */
 @Controller
 @AllArgsConstructor
-@Api(value = "标签接口查询", tags = "标签接口查询")
+@Tag(name = "标签接口查询", description = "标签接口查询")
 @Slf4j
 public class TagsController {
 

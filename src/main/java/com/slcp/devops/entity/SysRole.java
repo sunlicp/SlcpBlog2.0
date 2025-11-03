@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -23,27 +23,27 @@ public class SysRole implements Serializable {
     /**
      * 业务主表主键ID
      */
-    @ApiModelProperty(value = "业务主表主键ID")
+    @Schema(description = "业务主表主键ID")
     @JsonSerialize(using = ToStringSerializer.class)
     @TableId(value = "id")
     private Long id;
     /**
      * 权限id
      */
-    @ApiModelProperty(value = "权限id")
+    @Schema(description = "权限id")
     @JsonSerialize(using = ToStringSerializer.class)
     @TableField(value = "rights_id")
     private Long rightsId;
     /**
      * 博客名称
      */
-    @ApiModelProperty(value = "音乐名称")
+    @Schema(description = "音乐名称")
     @TableField(value = "role_name")
     private String roleName;
     /**
      * 博客名称
      */
-    @ApiModelProperty(value = "音乐名称")
+    @Schema(description = "音乐名称")
     @TableField(value = "role_desc")
     private String roleDesc;
 }

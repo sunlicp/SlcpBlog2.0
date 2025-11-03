@@ -1,9 +1,11 @@
 package com.slcp.devops.controller;
 
-import com.slcp.devops.entity.SysAdmin;
-import com.slcp.devops.utils.EmailUtils;
 import com.slcp.devops.dto.MessageDTO;
+import com.slcp.devops.entity.SysAdmin;
 import com.slcp.devops.service.MessageService;
+import com.slcp.devops.utils.EmailUtils;
+import jakarta.mail.MessagingException;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -13,8 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.mail.MessagingException;
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**

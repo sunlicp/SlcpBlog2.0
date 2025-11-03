@@ -2,9 +2,9 @@ package com.slcp.devops.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.slcp.devops.config.DoQueryCache;
-import com.slcp.devops.service.IMusicService;
 import com.slcp.devops.entity.Music;
 import com.slcp.devops.mapper.IMusicMapper;
+import com.slcp.devops.service.IMusicService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

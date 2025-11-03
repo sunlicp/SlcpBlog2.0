@@ -2,8 +2,8 @@ package com.slcp.devops.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.slcp.devops.service.ArchiveService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @AllArgsConstructor
-@Api(value = "快速报价接口查询", tags = "快速报价接口查询")
+@Tag(name = "快速报价接口查询", description = "快速报价接口查询")
 @Slf4j
 public class ArchiveShowController {
 
@@ -36,7 +36,7 @@ public class ArchiveShowController {
 
     @RequestMapping("/archives/sQuByTime")
     @ResponseBody
-    @ApiOperation(httpMethod = "GET", value = "articlesNum", notes = "获取一年每月的文章数量")
+    @Operation(summary = "articlesNum", description = "获取一年每月的文章数量")
     public JSONObject articlesNum() {
         return archiveService.getMon();
     }

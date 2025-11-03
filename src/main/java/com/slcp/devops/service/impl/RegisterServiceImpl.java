@@ -1,13 +1,13 @@
 package com.slcp.devops.service.impl;
 
+import com.slcp.devops.entity.RegisterUser;
 import com.slcp.devops.mapper.RegisterUserMapper;
+import com.slcp.devops.service.RegisterService;
 import com.slcp.devops.utils.Base64Utils;
 import com.slcp.devops.utils.MessageUtils;
-import com.slcp.devops.entity.RegisterUser;
-import com.slcp.devops.service.RegisterService;
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.Map;
 
 /**

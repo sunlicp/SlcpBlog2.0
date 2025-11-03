@@ -3,20 +3,19 @@ package com.slcp.devops.controller.admin;
 import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.slcp.devops.constant.DevOpsConstant;
+import com.slcp.devops.api.Result;
 import com.slcp.devops.dto.UserDTO;
 import com.slcp.devops.entity.*;
 import com.slcp.devops.service.*;
-import com.slcp.devops.api.Result;
 import com.slcp.devops.utils.JedisCacheUtil;
 import com.slcp.devops.utils.QiniuUtils;
 import com.slcp.devops.utils.StringUtil;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.Map;
 
 /**
  * @author: Slcp
@@ -26,7 +25,7 @@ import java.util.*;
 @RestController
 @RequestMapping("/sys")
 @AllArgsConstructor
-@Api(value = "聚合根", tags = "聚合根")
+@Tag(name = "聚合根", description = "聚合根")
 public class AggregateController {
 
     private final IAdminService adminService;
@@ -41,7 +40,7 @@ public class AggregateController {
 
 
     @GetMapping("/blog/add/color")
-    @ApiOperation(httpMethod = DevOpsConstant.METHOD_GET, value = "tagList", notes = "获取所有分类以及标签")
+    @Operation(summary = "tagList", description = "获取所有分类以及标签")
     public Result<?> tagList(@RequestParam("id") String id) {
         Map<String, Object> map = MapUtil.newHashMap();
         map.put("tagList", tagService.tagList());
@@ -52,7 +51,7 @@ public class AggregateController {
     }
 
     @PostMapping("/blog/add")
-    @ApiOperation(httpMethod = DevOpsConstant.METHOD_POST, value = "add", notes = "添加文章")
+    @Operation(summary = "add", description = "添加文章")
     public Result<?> add(@RequestBody Map<String, Object> queryParam) {
         Blog blog = SqlWhereWrapper.convertParamsMapToObject(queryParam, Blog.class);
         if (ObjectUtil.isNotEmpty(blog.getId())) {
@@ -73,7 +72,7 @@ public class AggregateController {
     }
 
     @DeleteMapping("/blog/{id}")
-    @ApiOperation(httpMethod = DevOpsConstant.METHOD_DELETE, value = "deleteBlog", notes = "删除分类")
+    @Operation(summary = "deleteBlog", description = "删除分类")
     public Result<Blog> deleteBlog(@PathVariable("id") Long id) {
         //删除图片
         StringUtil.delPicture(blogService.getById(id).getFirstPicture());

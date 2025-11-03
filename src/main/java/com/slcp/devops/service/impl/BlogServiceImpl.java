@@ -9,13 +9,13 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.slcp.devops.NotFountException;
 import com.slcp.devops.config.DoQueryCache;
 import com.slcp.devops.dto.*;
+import com.slcp.devops.dto.BlogDTO;
 import com.slcp.devops.entity.Blog;
 import com.slcp.devops.entity.Contact;
 import com.slcp.devops.mapper.IBlogMapper;
 import com.slcp.devops.service.IBlogService;
 import com.slcp.devops.utils.ColorUtil;
 import com.slcp.devops.utils.MarkdownUtils;
-import com.slcp.devops.dto.BlogDTO;
 import com.slcp.devops.utils.StringUtil;
 import org.springframework.stereotype.Service;
 
@@ -104,12 +104,12 @@ public class BlogServiceImpl extends ServiceImpl<IBlogMapper, Blog> implements I
         IPage<FirstPageDTO> page = new Page<>(Convert.toInt(pageNum, 1), pageNum == 1 ? 6 : 9);
         IPage<FirstPageDTO> firstPageBlogs = this.baseMapper.getFirstPageBlogs(page, null);
         if (pageNum != null && pageNum == 1) {
-            firstPageBlogs.getRecords().get(0).setFirstPicture("https://img.slcp.top/ft/IMG_3409.PNG");
-            firstPageBlogs.getRecords().get(1).setFirstPicture("https://img.slcp.top/ft/IMG_3410.PNG");
-            firstPageBlogs.getRecords().get(2).setFirstPicture("https://img.slcp.top/ft/IMG_3411.PNG");
-            firstPageBlogs.getRecords().get(3).setFirstPicture("https://img.slcp.top/ft/IMG_3417.PNG");
-            firstPageBlogs.getRecords().get(4).setFirstPicture("https://img.slcp.top/ft/IMG_3416.PNG");
-            firstPageBlogs.getRecords().get(5).setFirstPicture("https://img.slcp.top/ft/IMG_3415.PNG");
+            firstPageBlogs.getRecords().get(0).setFirstPicture("https://img.sunlicp.cn/ft/IMG_3409.PNG");
+            firstPageBlogs.getRecords().get(1).setFirstPicture("https://img.sunlicp.cn/ft/IMG_3410.PNG");
+            firstPageBlogs.getRecords().get(2).setFirstPicture("https://img.sunlicp.cn/ft/IMG_3411.PNG");
+            firstPageBlogs.getRecords().get(3).setFirstPicture("https://img.sunlicp.cn/ft/IMG_3417.PNG");
+            firstPageBlogs.getRecords().get(4).setFirstPicture("https://img.sunlicp.cn/ft/IMG_3416.PNG");
+            firstPageBlogs.getRecords().get(5).setFirstPicture("https://img.sunlicp.cn/ft/IMG_3415.PNG");
         }
         return firstPageBlogs;
     }
@@ -129,9 +129,9 @@ public class BlogServiceImpl extends ServiceImpl<IBlogMapper, Blog> implements I
     @DoQueryCache
     public List<RecommendDTO> getHotBlogs() {
         List<RecommendDTO> hotBlogs = this.baseMapper.getHotBlogs();
-        hotBlogs.get(0).setFirstPicture("https://img.slcp.top/ft/IMG_3404.PNG");
-        hotBlogs.get(1).setFirstPicture("https://img.slcp.top/ft/IMG_3405.PNG");
-        hotBlogs.get(2).setFirstPicture("https://img.slcp.top/ft/IMG_3419.PNG");
+        hotBlogs.get(0).setFirstPicture("https://img.sunlicp.cn/ft/IMG_3404.PNG");
+        hotBlogs.get(1).setFirstPicture("https://img.sunlicp.cn/ft/IMG_3405.PNG");
+        hotBlogs.get(2).setFirstPicture("https://img.sunlicp.cn/ft/IMG_3419.PNG");
         return hotBlogs;
     }
 

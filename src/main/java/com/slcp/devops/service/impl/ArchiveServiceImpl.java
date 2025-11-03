@@ -5,9 +5,9 @@ import com.slcp.devops.config.DoQueryCache;
 import com.slcp.devops.dto.ArchiveDTO;
 import com.slcp.devops.mapper.ArchiveMapper;
 import com.slcp.devops.service.ArchiveService;
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 

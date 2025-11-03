@@ -10,6 +10,7 @@ import com.slcp.devops.config.DoQueryCache;
 import com.slcp.devops.constant.DoQueryCacheContext;
 import com.slcp.devops.utils.JedisCacheUtil;
 import com.slcp.devops.utils.SerializableUtil;
+import jakarta.annotation.Resource;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -19,7 +20,6 @@ import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 import java.lang.reflect.Method;
 import java.util.LinkedHashMap;
 import java.util.Map;

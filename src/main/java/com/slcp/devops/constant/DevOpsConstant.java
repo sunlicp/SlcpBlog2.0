@@ -75,7 +75,7 @@ public class DevOpsConstant {
     /**
      * 外链域名
      */
-    public static String DOMAIN = "https://img.slcp.top/";
+    public static String DOMAIN = "https://img.sunlicp.cn/";
 
     /**
      * 获取诗路径

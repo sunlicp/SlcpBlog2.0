@@ -1,18 +1,19 @@
 package com.slcp.devops.controller;
 
-import com.alibaba.fastjson.JSONObject;
-import com.slcp.devops.dto.DetailedDTO;
-import com.slcp.devops.service.IBlogService;
 import com.slcp.devops.dto.Comment;
+import com.slcp.devops.dto.DetailedDTO;
 import com.slcp.devops.dto.FirstPageDTO;
 import com.slcp.devops.service.CommentService;
+import com.slcp.devops.service.IBlogService;
 import com.slcp.devops.service.ITagService;
-import com.slcp.devops.utils.ImgUtil;
-import io.swagger.annotations.Api;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -26,7 +27,7 @@ import java.util.List;
  */
 @Controller
 @AllArgsConstructor
-@Api(value = "友链接口查询", tags = "友链接口查询")
+@Tag(name = "友链接口查询", description = "友链接口查询")
 public class IndexShowController {
 
     private final IBlogService blogService;

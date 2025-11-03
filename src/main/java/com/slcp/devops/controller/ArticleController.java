@@ -8,14 +8,14 @@ import cn.hutool.http.HttpUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.slcp.devops.constant.DevOpsConstant;
-import com.slcp.devops.dto.RecommendDTO;
-import com.slcp.devops.service.IBlogService;
-import com.slcp.devops.dto.TypeDTO;
 import com.slcp.devops.dto.FirstPageDTO;
+import com.slcp.devops.dto.RecommendDTO;
+import com.slcp.devops.dto.TypeDTO;
+import com.slcp.devops.service.IBlogService;
 import com.slcp.devops.service.ITagService;
 import com.slcp.devops.service.ITypeService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -32,7 +32,7 @@ import java.util.List;
  **/
 @Controller
 @AllArgsConstructor
-@Api(value = "首页接口查询", tags = "首页接口查询")
+@Tag(name = "首页接口查询", description = "首页接口查询")
 @Slf4j
 public class ArticleController {
 
@@ -121,7 +121,7 @@ public class ArticleController {
 
     @RequestMapping("/article/poem")
     @ResponseBody
-    @ApiOperation(httpMethod = "GET", value = "getPoem", notes = "诗")
+    @Operation(summary = "getPoem", description = "诗")
     public String[] getPoem() {
         HttpRequest httpRequest = HttpUtil.createGet(DevOpsConstant.POEM_PATH).header(DevOpsConstant.POEM_KEY, DevOpsConstant.POEM_VALUE);
         HttpResponse resp = httpRequest.execute();

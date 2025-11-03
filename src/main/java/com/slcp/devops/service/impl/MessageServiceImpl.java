@@ -1,12 +1,12 @@
 package com.slcp.devops.service.impl;
 
 import com.slcp.devops.config.DoQueryCache;
-import com.slcp.devops.mapper.MessageMapper;
 import com.slcp.devops.dto.MessageDTO;
+import com.slcp.devops.mapper.MessageMapper;
 import com.slcp.devops.service.MessageService;
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

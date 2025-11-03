@@ -24,7 +24,9 @@ public class TagBlogRelServiceImpl extends ServiceImpl<ITagBlogRelMapper, TagBlo
             if (ObjectUtil.isEmpty(tagId)) {
                 continue;
             }
-            TagBlogRel tagBlogRel = new TagBlogRel(null, Long.valueOf(String.valueOf(tagId)), blogId);
+            TagBlogRel tagBlogRel = new TagBlogRel();
+            tagBlogRel.setTagId(Long.valueOf(String.valueOf(tagId)));
+            tagBlogRel.setBlogId(blogId);
             tagBlog.add(tagBlogRel);
         }
         return this.saveBatch(tagBlog);

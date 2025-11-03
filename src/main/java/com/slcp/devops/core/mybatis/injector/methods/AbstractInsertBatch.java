@@ -22,7 +22,6 @@ import com.baomidou.mybatisplus.core.metadata.TableFieldInfo;
 import com.baomidou.mybatisplus.core.metadata.TableInfo;
 import com.baomidou.mybatisplus.core.metadata.TableInfoHelper;
 import com.baomidou.mybatisplus.core.toolkit.sql.SqlScriptUtils;
-import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.executor.keygen.Jdbc3KeyGenerator;
 import org.apache.ibatis.executor.keygen.KeyGenerator;
 import org.apache.ibatis.executor.keygen.NoKeyGenerator;
@@ -38,10 +37,15 @@ import java.util.stream.Collectors;
  *
  * @author slcp
  */
-@RequiredArgsConstructor
 public class AbstractInsertBatch extends AbstractMethod {
-	private final String sqlTemp;
-	private final String sqlMethod;
+    private final String sqlTemp;
+    private final String sqlMethod;
+
+    public AbstractInsertBatch(String sqlTemp, String sqlMethod) {
+        super(sqlMethod);
+        this.sqlTemp = sqlTemp;
+        this.sqlMethod = sqlMethod;
+    }
 
 	@Override
 	public MappedStatement injectMappedStatement(Class<?> mapperClass, Class<?> modelClass, TableInfo tableInfo) {
@@ -84,9 +88,9 @@ public class AbstractInsertBatch extends AbstractMethod {
 	 *
 	 * @return sql 脚本片段
 	 */
-	private static String getAllInsertSqlColumnMaybeIf(TableInfo tableInfo) {
+    private static String getAllInsertSqlColumnMaybeIf(TableInfo tableInfo) {
 		List<TableFieldInfo> fieldList = tableInfo.getFieldList();
-		return tableInfo.getKeyInsertSqlColumn(true, true) + fieldList.stream().map(AbstractInsertBatch::getInsertSqlColumnMaybeIf)
+        return tableInfo.getKeyInsertSqlColumn(true, "", true) + fieldList.stream().map(AbstractInsertBatch::getInsertSqlColumnMaybeIf)
 			.collect(Collectors.joining(NEWLINE));
 	}
 

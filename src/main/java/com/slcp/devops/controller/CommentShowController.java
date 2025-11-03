@@ -1,11 +1,12 @@
 package com.slcp.devops.controller;
 
+import com.slcp.devops.dto.Comment;
 import com.slcp.devops.dto.DetailedDTO;
 import com.slcp.devops.entity.SysAdmin;
-import com.slcp.devops.service.IBlogService;
-import com.slcp.devops.dto.Comment;
 import com.slcp.devops.service.CommentService;
-import io.swagger.annotations.Api;
+import com.slcp.devops.service.IBlogService;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,7 +17,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -25,7 +25,7 @@ import java.util.List;
  * @code: 一生的挚爱
  */
 @Controller
-@Api(value = "评论接口查询", tags = "评论接口查询")
+@Tag(name = "评论接口查询", description = "评论接口查询")
 @Slf4j
 public class CommentShowController {
 

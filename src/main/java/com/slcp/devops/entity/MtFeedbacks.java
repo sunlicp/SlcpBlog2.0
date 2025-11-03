@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -27,26 +27,26 @@ public class MtFeedbacks extends BaseEntity<MtFeedbacks> implements Serializable
     /**
      * 墙留言ID
      */
-    @ApiModelProperty(value = "墙留言ID")
+    @Schema(description = "墙留言ID")
     @JsonSerialize(using = ToStringSerializer.class)
     @TableField(value = "wall_id")
     private Long wallId;
     /**
      * 反馈者ID
      */
-    @ApiModelProperty(value = "评论者ID")
+    @Schema(description = "评论者ID")
     @TableField(value = "user_id")
     private String userId;
     /**
      * 反馈类型0喜欢1举报2撤销
      */
-    @ApiModelProperty(value = "反馈类型")
+    @Schema(description = "反馈类型")
     @TableField(value = "type")
     private Integer type;
     /**
      * 时间
      */
-    @ApiModelProperty(value = "时间")
+    @Schema(description = "时间")
     @TableField(value = "moment")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime moment;

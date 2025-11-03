@@ -5,27 +5,19 @@ import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.BlockAttackInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
-import com.slcp.devops.core.mybatis.factory.YamlPropertySourceFactory;
 import com.slcp.devops.core.mybatis.interceptor.SqlLogInterceptor;
 import org.apache.ibatis.type.EnumTypeHandler;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * @author Slcp
  */
-@Order(Ordered.HIGHEST_PRECEDENCE)
 @Configuration
 @EnableTransactionManagement
-@PropertySource(factory = YamlPropertySourceFactory.class, value = "classpath:/application-dev.yml")
-@MapperScan("com.slcp.**.mapper.**")
 public class MybatisPlusConfig {
 
     /**
@@ -80,5 +72,13 @@ public class MybatisPlusConfig {
     @Bean
     public OptimisticLockerInnerInterceptor optimisticLockerInterceptor() {
         return new OptimisticLockerInnerInterceptor();
+    }
+
+    /**
+     * 自定义 SQL 注入器
+     */
+    @Bean
+    public com.slcp.devops.core.mybatis.injector.DevOpsSqlInjector devOpsSqlInjector() {
+        return new com.slcp.devops.core.mybatis.injector.DevOpsSqlInjector();
     }
 }

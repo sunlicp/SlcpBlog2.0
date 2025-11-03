@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -25,7 +25,7 @@ public class Blog extends BaseEntity<Blog> implements Serializable {
     /**
      * 分类id
      */
-    @ApiModelProperty(value = "分类id")
+    @Schema(description = "分类id")
     @JsonSerialize(using = ToStringSerializer.class)
     @TableField(value = "type_id")
     private Long typeId;
@@ -33,7 +33,7 @@ public class Blog extends BaseEntity<Blog> implements Serializable {
     /**
      * 用户id
      */
-    @ApiModelProperty(value = "用户id")
+    @Schema(description = "用户id")
     @JsonSerialize(using = ToStringSerializer.class)
     @TableField(value = "user_id")
     private Long userId;
@@ -41,70 +41,70 @@ public class Blog extends BaseEntity<Blog> implements Serializable {
     /**
      * 标题
      */
-    @ApiModelProperty(value = "标题")
+    @Schema(description = "标题")
     @TableField(value = "title")
     private String title;
 
     /**
      * 内容
      */
-    @ApiModelProperty(value = "内容")
+    @Schema(description = "内容")
     @TableField(value = "content")
     private String content;
 
     /**
      * 描述
      */
-    @ApiModelProperty(value = "描述")
+    @Schema(description = "描述")
     @TableField(value = "description")
     private String description;
 
     /**
      * 图片路径
      */
-    @ApiModelProperty(value = "图片路径")
+    @Schema(description = "图片路径")
     @TableField(value = "first_picture")
     private String firstPicture;
 
     /**
      * 赞赏
      */
-    @ApiModelProperty(value = "赞赏")
+    @Schema(description = "赞赏")
     @TableField(value = "appreciation")
     private Boolean appreciation;
 
     /**
      * 标记
      */
-    @ApiModelProperty(value = "标记")
+    @Schema(description = "标记")
     @TableField(value = "flag")
     private Integer flag;
 
     /**
      * 公开
      */
-    @ApiModelProperty(value = "公开")
+    @Schema(description = "公开")
     @TableField(value = "published")
     private Boolean published;
 
     /**
      * 推荐
      */
-    @ApiModelProperty(value = "推荐")
+    @Schema(description = "推荐")
     @TableField(value = "recommend")
     private Boolean recommend;
 
     /**
      * 转载声明
      */
-    @ApiModelProperty(value = "转载声明")
+    @Schema(description = "转载声明")
     @TableField(value = "share_statement")
     private Boolean shareStatement;
 
     /**
      * 置顶
      */
-    @ApiModelProperty(value = "置顶")
+    @Schema(description = "置顶")
     @TableField(value = "top")
     private Boolean top;
     //评论
@@ -112,14 +112,14 @@ public class Blog extends BaseEntity<Blog> implements Serializable {
     /**
      * 评论
      */
-    @ApiModelProperty(value = "评论")
+    @Schema(description = "评论")
     @TableField(value = "comment")
     private Boolean comment;
 
     /**
      * 访问次数
      */
-    @ApiModelProperty(value = "访问次数")
+    @Schema(description = "访问次数")
     @JsonSerialize(using = ToStringSerializer.class)
     @TableField(value = "views")
     private Long views;
@@ -127,7 +127,7 @@ public class Blog extends BaseEntity<Blog> implements Serializable {
     /**
      * 评论次数
      */
-    @ApiModelProperty(value = "评论次数")
+    @Schema(description = "评论次数")
     @JsonSerialize(using = ToStringSerializer.class)
     @TableField(value = "comment_count")
     private Long commentCount;
@@ -135,7 +135,7 @@ public class Blog extends BaseEntity<Blog> implements Serializable {
     /**
      * 特殊操作
      */
-    @ApiModelProperty(value = "特殊操作")
+    @Schema(description = "特殊操作")
     @JsonSerialize(using = ToStringSerializer.class)
     @TableField(value = "special")
     private Integer special;
@@ -143,7 +143,7 @@ public class Blog extends BaseEntity<Blog> implements Serializable {
     /**
      * 特殊内容
      */
-    @ApiModelProperty(value = "特殊内容")
+    @Schema(description = "特殊内容")
     @JsonSerialize(using = ToStringSerializer.class)
     @TableField(value = "special_content")
     private String specialContent;

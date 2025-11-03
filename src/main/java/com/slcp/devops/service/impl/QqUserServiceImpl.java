@@ -1,11 +1,10 @@
 package com.slcp.devops.service.impl;
 
-import com.slcp.devops.mapper.QqUserMapper;
 import com.slcp.devops.entity.QqUser;
+import com.slcp.devops.mapper.QqUserMapper;
 import com.slcp.devops.service.QqUserService;
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 
 /**
  * @author: Slcp

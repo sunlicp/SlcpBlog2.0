@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -23,7 +23,7 @@ public class Tag implements Serializable {
     /**
      * 业务主表主键ID
      */
-    @ApiModelProperty(value = "业务主表主键ID")
+    @Schema(description = "业务主表主键ID")
     @JsonSerialize(using = ToStringSerializer.class)
     @TableId(value = "id")
     private Long id;
@@ -31,7 +31,7 @@ public class Tag implements Serializable {
     /**
      * 标签名
      */
-    @ApiModelProperty(value = "标签名")
+    @Schema(description = "标签名")
     @TableField(value = "name")
     private String name;
 }

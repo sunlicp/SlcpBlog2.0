@@ -2,11 +2,12 @@ package com.slcp.devops.controller;
 
 import com.slcp.devops.entity.FriendLink;
 import com.slcp.devops.service.IFriendLinkService;
-import io.swagger.annotations.Api;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  * @author: Slcp
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller
 @AllArgsConstructor
-@Api(value = "友链接口查询", tags = "友链接口查询")
+@Tag(name = "友链接口查询", description = "友链接口查询")
 public class FriendLinkShowController {
 
     private final IFriendLinkService friendLinkService;

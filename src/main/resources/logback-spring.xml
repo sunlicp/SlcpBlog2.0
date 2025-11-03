@@ -13,17 +13,15 @@
             <charset>UTF-8</charset>
         </encoder>
         <file>${LOG_FILE}</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.%i</fileNamePattern>
+        <!-- 使用 SizeAndTimeBasedRollingPolicy 替代已废弃的 TimeBasedRollingPolicy + SizeAndTimeBasedFNATP -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
             <!--保留历史日志一个月的时间-->
             <maxHistory>30</maxHistory>
-            <!--
-            Spring Boot默认情况下，日志文件10M时，会切分日志文件,这样设置日志文件会在100M时切分日志
-            -->
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>10MB</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
-
+            <!--单个日志文件最大10MB-->
+            <maxFileSize>10MB</maxFileSize>
+            <!--所有日志文件总大小不超过1GB-->
+            <totalSizeCap>1GB</totalSizeCap>
         </rollingPolicy>
     </appender>
 

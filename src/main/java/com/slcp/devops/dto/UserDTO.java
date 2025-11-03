@@ -1,13 +1,7 @@
 package com.slcp.devops.dto;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
-import com.slcp.devops.entity.SysAttendance;
-import com.slcp.devops.entity.SysRole;
-import com.slcp.devops.entity.SysAdmin;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.io.Serializable;
