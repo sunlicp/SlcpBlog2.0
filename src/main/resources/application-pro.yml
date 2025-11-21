@@ -85,8 +85,8 @@ mybatis-plus:
 #从QQ获取信息
 qq:
   oauth:
-    appid: *
-    appkey: *
+    appid: ""
+    appkey: ""
     #qq授权回调地址
     url: http://www.sunlicp.cn/qqlogin
 

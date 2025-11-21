@@ -5,7 +5,7 @@
 基于 `vue`和`SpringBoot`，实现的博客系统
 
 ## 在线地址
-链接：[www.slcp.top](https://www.slcp.top)
+链接：[www.sunlicp.cn](https://www.sunlicp.cn)
 
 ## 主要功能
 ### 前端

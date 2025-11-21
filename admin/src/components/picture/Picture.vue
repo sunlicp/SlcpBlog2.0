@@ -113,7 +113,7 @@
             drag
             multiple
             class="avatar-uploader"
-            action="https://slcp.top/sys/pictures/upload"
+            action="https://sunlicp.cn/sys/pictures/upload"
             :show-file-list="false"
             :on-success="handleAvatarSuccess"
             :before-upload="beforeAvatarUpload">
@@ -157,7 +157,7 @@
             drag
             multiple
             class="avatar-uploader"
-            action="https://slcp.top/sys/pictures/upload"
+            action="https://sunlicp.cn/sys/pictures/upload"
             :show-file-list="false"
             :on-success="editHandleAvatarSuccess"
             :before-upload="beforeAvatarUpload">

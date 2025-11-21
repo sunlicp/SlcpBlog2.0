@@ -184,7 +184,7 @@ export default {
       // 静态属性列表数据
       onlyTableData: [],
       // 图片上传地址
-      uploadURL: 'https://slcp.top/sys/pictures/upload',
+      uploadURL: 'https://sunlicp.cn/sys/pictures/upload',
       // 图片上传组件的请求对象
       headerObj: {
         Authorization: window.sessionStorage.getItem('token')

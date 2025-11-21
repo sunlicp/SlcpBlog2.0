@@ -1,0 +1,1 @@
+let baseUrl=''let routerMode='hash'let avatarUrl=''if(process.env.NODE_ENV=='development'){baseUrl='http://127.0.0.1:81/'avatarUrl='https://img.sunlicp.cn/me.jpg'}else{baseUrl='https://sunlicp.cn/'avatarUrl='https://img.sunlicp.cn/me.jpg'}export{baseUrl,routerMode,avatarUrl}
